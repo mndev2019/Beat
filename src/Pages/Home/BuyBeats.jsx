@@ -35,7 +35,6 @@ const BuyBeats = () => {
                     {/* Right Content (Mockups) */}
                     <div className="flex justify-center md:justify-end gap-5 md:block hidden">
                         <img src={phone} alt="App UI" className="h-[500px]" />
-
                     </div>
                 </div>
             </section>

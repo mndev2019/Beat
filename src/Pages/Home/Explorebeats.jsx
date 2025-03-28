@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import plus from '../../assets/Image/plus.svg'
 import hiphop from '../../assets/Image/newhiphop.png'
+import soul from '../../assets/Image/SOUL.png'
+import kpop from '../../assets/Image/kpop.png'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -19,7 +21,7 @@ const Explorebeats = () => {
         arrows: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
@@ -42,10 +44,30 @@ const Explorebeats = () => {
             }
         ]
     };
-    
+    const data = [
+        {
+            image: hiphop,
+        },
+        {
+            image: soul,
+        },
+        {
+            image: kpop,
+        },
+        {
+            image: hiphop,
+        },
+        {
+            image: soul,
+        },
+        {
+            image: kpop,
+        }
+    ]
+
     return (
         <>
-            <section className='bg-[#1e032a] lg:px-20 px-10 py-10'>
+            <section className='lg:px-20 px-10 pt-10'>
                 <div className="container mx-auto">
                     <div className="justify-between md:flex items-center ">
                         <div className="">
@@ -65,7 +87,7 @@ const Explorebeats = () => {
                     </div>
                     <div className="mt-10 relative">
                         <Slider ref={(slider) => (sliderRef = slider)} {...settings}>
-                            {[...Array(6)].map((_, index) => (
+                            {data.map((itm, index) => (
                                 <div key={index} className="px-4">
                                     {/* <div className="relative ">
                                         <img
@@ -80,17 +102,17 @@ const Explorebeats = () => {
                                             HIP HOP
                                         </p>
                                     </div> */}
-                                    <img src={hiphop} className='' alt='image'/>
+                                    <img src={itm.image} className='' alt='image' />
                                 </div>
                             ))}
                         </Slider>
 
-                        <div className=" mt-4">
+                        <div className=" ">
                             <button className="cursor-pointer text-white px-2 py-2 hover:border-white  border-2 border-[#424345] rounded-full top-[29%] left-[-30px] absolute" onClick={previous}>
                                 <FaArrowLeft className='text-[#B9B9B9] hover:text-white' />
                             </button>
                             <button className="text-white px-2 py-2 hover:border-white cursor-pointer   border-2 border-[#424345] rounded-full top-[29%] right-[-30px] absolute" onClick={next}>
-                            <FaArrowRight className='text-[#B9B9B9] hover:text-white' />
+                                <FaArrowRight className='text-[#B9B9B9] hover:text-white' />
                             </button>
                         </div>
                     </div>

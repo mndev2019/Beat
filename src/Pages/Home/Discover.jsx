@@ -3,7 +3,7 @@ import React from 'react'
 const Discover = () => {
     return (
         <>
-            <section className='discover lg:h-screen sm:h-[500px] h-[400px] flex items-center lg:px-20 px-10'>
+            <section className='discover lg:h-screen sm:h-[500px] h-[350px] flex items-center lg:px-20 px-10'>
                 <div className="container mx-auto ">
                     <div className="grid lg:grid-cols-3 grid-cols-1">
                         <div className="col-span-1">

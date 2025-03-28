@@ -15,13 +15,7 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
-
     const location = useLocation();
-
-
-
-
     useEffect(() => {
 
         window.scrollTo({
@@ -66,11 +60,6 @@ const Navbar = () => {
                     <button className=' rounded-[16px] py-3 px-5 signbtn'>Sign up </button>
                 </NavLink>
             </li>
-
-
-
-
-
         </ul>
     );
 

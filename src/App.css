@@ -2,6 +2,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    background-color: #1E032A;
 }
 
 /*navbar*/
@@ -13,6 +14,7 @@ body {
 .banner .myVideo {
     height: 100vh;
 }
+
 @media (min-width: 500px) and (max-width: 769px) {
     .banner .myVideo {
         height: 500px;
@@ -24,6 +26,7 @@ body {
         height: 350px;
     }
 }
+
 .banner .myVideo video {
     object-fit: fill;
 }
@@ -43,7 +46,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     background-color: #24052D;
 
 }
@@ -57,7 +59,7 @@ body {
 .sellingbeat {
     background-image: url('./assets/Image/Line.png');
     background-size: cover;
-    background-position:unset;
+    background-position: unset;
     background-repeat: no-repeat;
     background-color: #24052D;
 }
@@ -65,12 +67,14 @@ body {
 .innersellingbox {
     background: linear-gradient(248.71deg, #6C009C 36.17%, #FF0080 111.44%);
 }
-.about{
-  background-image: url('./assets/Image/bgabout.svg');
-  background-position: top center;
-  background-size: cover;
-  background-position: center;
-  background-color: #1E032A;
+
+/*about*/
+.about {
+    background-image: url('./assets/Image/bgabout.svg');
+    background-position: top center;
+    background-size: cover;
+    background-position: center;
+    background-color: #1E032A;
 
 
 }
