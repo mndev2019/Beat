@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/*navbar*/
+.signbtn {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(153, 153, 153, 0.13) 100%);
+}
+
+/* banner */
+.banner .myVideo {
+    height: 100vh;
+}
+@media (min-width: 500px) and (max-width: 769px) {
+    .banner .myVideo {
+        height: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+    .banner .myVideo {
+        height: 350px;
+    }
+}
+.banner .myVideo video {
+    object-fit: fill;
+}
+
+/* discover */
+.discover {
+    background-image: url('./assets/Image/discover.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+/* beats */
+.beat {
+    background-image: url('./assets/Image/beats.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #24052D;
+
+}
+
+.beats {
+    background: linear-gradient(180deg, rgba(153, 30, 112, 0.82) 0%, #690B7C 88.21%);
+
+}
+
+/*sellingbeat*/
+.sellingbeat {
+    background-image: url('./assets/Image/Line.png');
+    background-size: cover;
+    background-position:unset;
+    background-repeat: no-repeat;
+    background-color: #24052D;
+}
+
+.innersellingbox {
+    background: linear-gradient(248.71deg, #6C009C 36.17%, #FF0080 111.44%);
+}
+.about{
+  background-image: url('./assets/Image/bgabout.svg');
+  background-position: top center;
+  background-size: cover;
+  background-position: center;
+  background-color: #1E032A;
+
+
+}
