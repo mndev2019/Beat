@@ -7,6 +7,7 @@ import Addbeat from './Pages/Addbeat'
 import Authlayout from './Authlayout'
 import Login from './Authlayout/Login'
 import Otp from './Authlayout/Otp'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const ThemeRoute = createBrowserRouter(
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <RouterProvider router={ThemeRoute} />
+      <ToastContainer />
     </>
   )
 }
