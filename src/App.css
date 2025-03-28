@@ -78,3 +78,30 @@ body {
 
 
 }
+
+/*addbeat*/
+.addbeat .submit {
+    background: linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%);
+
+}
+
+.login .submit {
+    background: linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%);
+
+}
+
+.loginbg {
+    background-image: url('./assets/Image/Line.png');
+    background-size: cover;
+    background-position: unset;
+    background-repeat: no-repeat;
+
+}
+
+.OtpBox input {
+    border-radius: 10px;
+    height: 3rem !important;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 3rem !important;
+}

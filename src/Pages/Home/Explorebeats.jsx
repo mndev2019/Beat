@@ -7,8 +7,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'
 
 const Explorebeats = () => {
+    const navigate = useNavigate();
     let sliderRef = useRef(null);
     const next = () => {
         sliderRef.slickNext();
@@ -79,7 +81,7 @@ const Explorebeats = () => {
                             </p>
                         </div>
                         <div className="md:mt-0 mt-4">
-                            <button className='md:text-[20px] text-[15px] font-[600] bg-white px-4 py-2 rounded-[14px] flex gap-2 items-center'>
+                            <button className='md:text-[20px] text-[15px] font-[600] bg-white px-4 py-2 rounded-[14px] flex gap-2 items-center' onClick={()=> navigate('/addbeat')}>
                                 <img src={plus} alt='image' className='h-[25px]' />
                                 Add Beat
                             </button>

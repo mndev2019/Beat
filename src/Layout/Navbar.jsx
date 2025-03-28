@@ -24,7 +24,12 @@ const Navbar = () => {
         });
     }, [location]);
 
+   
 
+    // Function to check if we are on the home page
+    const getNavbarClass = () => {
+        return location.pathname === '/' ? 'absolute' : '';
+    };
 
 
     const navlist = (
@@ -39,7 +44,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/booking"
+                    to="/"
                     className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
                 >
                     Contact
@@ -47,7 +52,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/pricing"
+                    to="/login"
                     className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
                 >
                     Log In
@@ -55,7 +60,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="signin"
+                    to="/login"
                 >
                     <button className=' rounded-[16px] py-3 px-5 signbtn'>Sign up </button>
                 </NavLink>
@@ -66,9 +71,10 @@ const Navbar = () => {
 
     return (
         <>
-            <section className='md:py-5 py-3 md:px-10 px-5  absolute w-full'>
+            <section className={`md:py-5 py-3 md:px-10 px-5 z-10   ${getNavbarClass()}   w-full`}> 
+         
                 <div className="container mx-auto">
-                    <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5">
+                    <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5 ">
                         {/* Logo */}
                         <NavLink to='/'>
                             <img src={logo} alt='Logo' className='md:h-auto h-[50px]' />
