@@ -4,6 +4,7 @@ import apple from '../assets/Image/apple.png'
 import playstore from '../assets/Image/playstore.png'
 import { FaFacebook } from 'react-icons/fa'
 import { PiInstagramLogoFill } from 'react-icons/pi'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -12,7 +13,9 @@ const Footer = () => {
                 <div className="container mx-auto px-10">
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 border-b border-gray-500 pb-10">
                         <div className="col-span-1">
-                            <img src={logo} alt='image' />
+                            <Link to='/'>
+                                <img src={logo} alt='image' />
+                            </Link>
                         </div>
                         <div className="col-span-1">
                             <h2 className='lg:text-[22px] md:text-[20px] text-[18px] font-[500] text-white mb-3'>
@@ -20,7 +23,7 @@ const Footer = () => {
                             </h2>
                             <ul className='text-white font-[300] md:text-[16px] text-[14px] space-y-3'>
                                 <li>
-                                    Home
+                                    <Link to='/'> Home</Link>
                                 </li>
                                 <li>
                                     About Us

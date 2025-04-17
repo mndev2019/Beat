@@ -1,7 +1,7 @@
 import React from 'react'
 import about from '../../assets/Image/about.svg'
 
-import phone from '../../assets/Image/phone.png'
+// import phone from '../../assets/Image/phone.png'
 import { GoCheckCircleFill } from 'react-icons/go'
 
 const About = () => {
@@ -33,12 +33,12 @@ const About = () => {
                     </div>
                 </div>
             </section>
-            <section
+            {/* <section
                 className="sellingbeat bg-[#1e032a] lg:h-[650px] h-auto flex items-center justify-center px-8 md:px-16 lg:py-0 py-10"
 
             >
                 <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 items-center innersellingbox md:p-10 p-5 rounded-tl-[50px] rounded-br-[50px]">
-                    {/* Left Content */}
+             
                     <div className="text-white">
                         <h2 className="lg:text-3xl md:text-[25px] font-[700]">Start Selling your <span className='block'>
                             Beats Today</span></h2>
@@ -61,13 +61,13 @@ const About = () => {
                         </div>
                     </div>
 
-                    {/* Right Content (Mockups) */}
+                   
                     <div className=" justify-center md:justify-end gap-5 md:block hidden">
                         <img src={phone} alt="App UI" className="h-[500px]" />
 
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }

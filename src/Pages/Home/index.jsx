@@ -6,6 +6,9 @@ import Explorebeats from './Explorebeats'
 import { SiBeats } from 'react-icons/si'
 import Browsebeats from './Browsebeats'
 import BuyBeats from './BuyBeats'
+import SellBeat from './SellBeat'
+import Connectpeople from './Connectpeople'
+import Success from './Success'
 
 const Home = () => {
   return (
@@ -14,8 +17,11 @@ const Home = () => {
       <Discover />
       <About/>
       <Explorebeats />
+      <Success/>
       <Browsebeats />
+      <SellBeat/>
       <BuyBeats/>
+      <Connectpeople/>
     </>
   )
 }

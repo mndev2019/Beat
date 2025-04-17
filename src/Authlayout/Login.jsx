@@ -6,12 +6,9 @@ import OTPInput from 'react-otp-input';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-
     const [isLogin, setIsLogin] = useState(true);
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         let requestData = {
