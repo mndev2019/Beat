@@ -4,13 +4,13 @@ import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 const Banner = () => {
     const videoRef = useRef(null);
-    const [isMuted, setIsMuted] = useState(true); // Initial state: muted
+    const [isMuted, setIsMuted] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
             if (videoRef.current) {
                 videoRef.current.muted = true;
-                setIsMuted(true); // Update state as well
+                setIsMuted(true);
             }
         };
 
@@ -38,15 +38,14 @@ const Banner = () => {
                         autoPlay
                         loop
                         playsInline
-                        // muted={isMuted} // Keep this in sync with state
+                        muted={isMuted}
                     >
                         <source src={banner} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
-
                 <div
-                    className='h-[30px] w-[30px] rounded-md bg-black flex justify-center items-center absolute bottom-[3px] left-[10px] cursor-pointer z-10'
+                    className='h-[30px] w-[30px] rounded-md bg-black flex justify-center items-center absolute bottom-[3px] left-[10px] cursor-pointer'
                     onClick={toggleMute}
                 >
                     {isMuted ? (

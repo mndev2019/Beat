@@ -58,7 +58,6 @@ const Footer = () => {
 
                         </div>
                     </div>
-
                     <div className="flex justify-between pt-5">
                         <div className="font-[300] md:text-[14px] text-[12px] text-white">
                             Project Beat with  ©  2025. All right reserved

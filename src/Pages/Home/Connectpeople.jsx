@@ -31,11 +31,9 @@ const Connectpeople = () => {
                                 <img src={connect3} alt='image' className='justify-items-end' />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
-
         </>
     )
 }

@@ -14,7 +14,7 @@ const BuyBeats = () => {
                     <div className="text-white">
                         <h2 className="lg:text-3xl md:text-[25px] font-[700]">Start Buying  Beats Now</h2>
                         <p className="text-[#B8B8B8] lg:text-[18px] sm:text-[15px] text-[13px] font-[400] mt-3">
-                        Browse high-quality beats and get the one you want to make your best.
+                            Browse high-quality beats and get the one you want to make your best.
                         </p>
                         <ul className="mt-5 space-y-3">
                             {["Get Subscription", "Browse your Type of Beat", "Make Payment",].map(

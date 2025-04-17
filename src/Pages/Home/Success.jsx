@@ -1,5 +1,5 @@
 import React from 'react'
-import about from '../../assets/Image/about.svg'
+// import about from '../../assets/Image/about.svg'
 import success from '../../assets/Image/success.png'
 
 const Success = () => {

@@ -1,5 +1,4 @@
 import React from 'react'
-
 const Discover = () => {
     return (
         <>
@@ -19,7 +18,7 @@ const Discover = () => {
                                 </p>
                                 <div className='lg:pt-5 pt-2'>
                                     <button className='md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300'>
-                                    Discover Now
+                                        Discover Now
                                     </button>
                                 </div>
                             </div>
@@ -27,7 +26,6 @@ const Discover = () => {
                     </div>
                 </div>
             </section>
-           
         </>
     )
 }
