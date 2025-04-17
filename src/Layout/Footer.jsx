@@ -53,8 +53,14 @@ const Footer = () => {
                             <h2 className='lg:text-[22px] md:text-[20px] text-[18px] font-[500] text-white mb-3'>
                                 Take Beats on the Go!
                             </h2>
+                            <Link to="https://apps.apple.com/in/app/project-beat/id6535684400">
                             <img src={apple} alt='image' className='md:h-[60px] h-[50px]' />
-                            <img src={playstore} alt='image' className='md:h-[60px] h-[50px] mt-3' />
+                            </Link>
+                           
+                            <Link to="https://play.google.com/store/apps/details?id=com.projectbeat.app">
+                                <img src={playstore} alt='image' className='md:h-[60px] h-[50px] mt-3' />
+                            </Link>
+
 
                         </div>
                     </div>
