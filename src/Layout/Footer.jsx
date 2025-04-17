@@ -54,9 +54,9 @@ const Footer = () => {
                                 Take Beats on the Go!
                             </h2>
                             <Link to="https://apps.apple.com/in/app/project-beat/id6535684400">
-                            <img src={apple} alt='image' className='md:h-[60px] h-[50px]' />
+                                <img src={apple} alt='image' className='md:h-[60px] h-[50px]' />
                             </Link>
-                           
+
                             <Link to="https://play.google.com/store/apps/details?id=com.projectbeat.app">
                                 <img src={playstore} alt='image' className='md:h-[60px] h-[50px] mt-3' />
                             </Link>
@@ -69,8 +69,13 @@ const Footer = () => {
                             Project Beat with  ©  2025. All right reserved
                         </div>
                         <div className='flex gap-1 items-center'>
-                            <FaFacebook className='text-white text-lg' />
-                            <PiInstagramLogoFill className='text-white text-xl' />
+                            <a href='https://www.facebook.com/people/Project-Beat-Records/61556641920870/?mibextid=WC7FNe' target='_blank'>
+                                <FaFacebook className='text-white text-lg' />
+                            </a>
+                            <a href='https://www.instagram.com/accounts/login/?next=%2Fprojectbeatrecords%2F&source=omni_redirect'>
+                                <PiInstagramLogoFill className='text-white text-xl' />
+                            </a>
+
                         </div>
                     </div>
 
