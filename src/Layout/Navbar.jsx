@@ -44,7 +44,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/"
+                    to="/contact"
                     className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
                 >
                     Contact

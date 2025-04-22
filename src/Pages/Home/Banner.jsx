@@ -5,7 +5,6 @@ import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 const Banner = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
-
     useEffect(() => {
         const handleScroll = () => {
             if (videoRef.current) {
@@ -13,7 +12,6 @@ const Banner = () => {
                 setIsMuted(true);
             }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);

@@ -105,4 +105,41 @@ body {
     margin-top: 10px;
     width: 3rem !important;
 }
+
+/* terms */
+.terms {
+    background-image: url('./assets/Image/Line.png');
+    background-size: cover;
+    /* or use '100% auto' for exact width fit */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+@media(max-width:500px) {
+    .terms {
+        background-position: unset;
+    }
+}
+
+/* about */
+.about .about2 {
+    right: 158px;
+    top: -50px;
+    z-index: 99;
+}
+
+@media(max-width:1300px) {
+    .about .about2 {
+        right: 79px;
+    }
+}
+
+.about .about3 {
+    position: absolute;
+    bottom: -71px;
+    z-index: 0;
+    left: 49px
+}
+
 /* connect */

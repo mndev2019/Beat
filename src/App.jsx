@@ -8,6 +8,15 @@ import Authlayout from './Authlayout'
 import Login from './Authlayout/Login'
 import Otp from './Authlayout/Otp'
 import { ToastContainer } from 'react-toastify'
+import Contactpage from './Pages/Contactpage'
+import TermsCondition from './Pages/TermsCondition'
+import PrivacyPolicy from './Pages/PrivacyPolicy'
+import Music from './Pages/Music'
+import Cart from './Pages/Cart/Index'
+import MembershipHiostry from './Pages/Cart/MembershipHiostry'
+import Purchasemembership from './Pages/Cart/Purchasemembership'
+import About from './Pages/About'
+
 
 function App() {
   const ThemeRoute = createBrowserRouter(
@@ -16,12 +25,18 @@ function App() {
         <Route path="/" element={<WebLayout />}>
           <Route index element={<Home />} />
           <Route path='/addbeat' element={<Addbeat />} />
+          <Route path='/contact' element={<Contactpage />} />
+          <Route path='/about' element={<About/>}/>
+          <Route path='/terms-condition' element={<TermsCondition />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path='/music' element={<Music />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/membership-hiostry' element={<MembershipHiostry/>}/>
+          <Route path='/purchase-membership' element={<Purchasemembership/>}/>
         </Route>
         <Route element={<Authlayout />}>
-         
           <Route path='/login' element={<Login />} />
-          <Route path='/otp' element={<Otp/>}/>
-
+          <Route path='/otp' element={<Otp />} />
         </Route>
 
 

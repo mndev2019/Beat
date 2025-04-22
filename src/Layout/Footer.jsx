@@ -26,10 +26,15 @@ const Footer = () => {
                                     <Link to='/'> Home</Link>
                                 </li>
                                 <li>
-                                    About Us
+                                    <Link to='/about'>
+                                        About Us
+                                    </Link>
+
                                 </li>
                                 <li>
-                                    Music
+                                    <Link to='/music'>
+                                        Music
+                                    </Link>
                                 </li>
                                 <li>
                                     Contact Us
@@ -42,10 +47,15 @@ const Footer = () => {
                             </h2>
                             <ul className='text-white font-[300] md:text-[16px] text-[14px] space-y-3'>
                                 <li>
-                                    Terms & Conditions
+                                    <Link to='/terms-condition'>
+                                        Terms & Conditions
+                                    </Link>
                                 </li>
                                 <li>
-                                    Privacy Policy
+                                    <Link to='/privacy-policy'>
+                                        Privacy Policy
+                                    </Link>
+
                                 </li>
                             </ul>
                         </div>
