@@ -8,6 +8,8 @@ import circlethree from '../../assets/Image/thirdcircle.png';
 import plane from '../../assets/Image/plane.png'
 
 const Contactpage = () => {
+ 
+
   return (
     <>
       <section className='lg:px-20 md:px-10 px-5 md:py-10 py-5 terms'>
@@ -23,35 +25,38 @@ const Contactpage = () => {
               <img src={circletwo} alt='circletwo' className='absolute h-[130px] top-[-35px] right-[25px] z-[-1] lg:block hidden' />
               <img src={circlethree} alt='circlethree' className='absolute h-[80px] bottom-[-24px] left-[94px] lg:block hidden z-[-1]' />
               <div className="lg:w-[90%] w-[95%] bg-white/20  shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[5px] mx-auto pt-5 px-5  lg:rounded-[24px] rounded-[20px] space-y-6  z-[1]  border border-[#AF96BC]" >
-
-
-
-
                 <h2 className="text-white text-center md:text-[24px] text-[18px] lg:text-[27px] font-[600] poppins">Get In Touch</h2>
+                <form >
+                  <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-6 gap-4">
+                    <div className='col-span-1'>
+                      <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">First Name</label>
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                       
+                        className="w-full rounded-full md:p-3 p-2 bg-[#2D1A38] text-white outline-none md:text-[15px] text-[12px]" />
+                    </div>
+                    <div className='col-span-1'>
+                      <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Email</label>
+                      <input type="email" placeholder="Your Email" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
+                    </div>
+                    <div className='col-span-1'>
+                      <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Phone Number</label>
+                      <input type="text" placeholder="Your Phone Number" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
+                    </div>
+                    <div className='col-span-1'>
+                      <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Address</label>
+                      <input type="text" placeholder="Your Address" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
+                    </div>
+                    <div className='lg:col-span-2 col-span-1'>
+                      <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Message</label>
+                      <textarea rows={5} placeholder="Your Message" className="w-full rounded-xl  bg-[#2D1A38] text-white outline-none resize-none md:p-3 p-2 md:text-[15px] text-[12px]" />
+                    </div>
+                  </div>
+                </form>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-6 gap-4">
-                  <div>
-                    <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">First Name</label>
-                    <input type="text" placeholder="First Name" className="w-full rounded-full md:p-3 p-2 bg-[#2D1A38] text-white outline-none md:text-[15px] text-[12px]" />
-                  </div>
-                  <div>
-                    <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Email</label>
-                    <input type="email" placeholder="Your Email" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
-                  </div>
-                  <div>
-                    <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Phone Number</label>
-                    <input type="text" placeholder="Your Phone Number" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
-                  </div>
-                  <div>
-                    <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Address</label>
-                    <input type="text" placeholder="Your Address" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]" />
-                  </div>
-                </div>
 
-                <div>
-                  <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Message</label>
-                  <textarea rows={5} placeholder="Your Message" className="w-full rounded-xl p-3 bg-[#2D1A38] text-white outline-none resize-none md:p-3 p-2 md:text-[15px] text-[12px]" />
-                </div>
+
 
                 <div className="flex flex-wrap justify-between items-center">
                   <div className="space-y-1">

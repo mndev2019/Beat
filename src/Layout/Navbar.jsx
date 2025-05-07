@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/Image/logo.svg';
-
+import cart from '../assets/Image/cart.svg'
 
 
 // import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
@@ -10,6 +10,7 @@ import { IoClose } from 'react-icons/io5';
 
 
 const Navbar = () => {
+    const token = localStorage.getItem("token")
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -24,7 +25,7 @@ const Navbar = () => {
         });
     }, [location]);
 
-   
+
 
     // Function to check if we are on the home page
     const getNavbarClass = () => {
@@ -50,29 +51,45 @@ const Navbar = () => {
                     Contact
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to="/login"
-                    className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
-                >
-                    Log In
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/login"
-                >
-                    <button className=' rounded-[16px] py-3 px-5 signbtn'>Sign up </button>
-                </NavLink>
-            </li>
+            {
+                token ? (
+                    <>
+                        <li>
+                            <NavLink to="/cart">
+                                <button>
+                                    <img src={cart} alt='cart' />
+                                </button>
+                            </NavLink>
+                        </li>
+                    </>
+                ) : (
+                    <>
+                        <li>
+                            <NavLink
+                                to="/login"
+                                className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
+                            >
+                                Log In
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/login">
+                                <button className='rounded-[16px] py-3 px-5 signbtn'>Sign up</button>
+                            </NavLink>
+                        </li>
+                    </>
+                )
+            }
+
+
         </ul>
     );
 
 
     return (
         <>
-            <section className={`md:py-5 py-3 md:px-10 px-5 z-10   ${getNavbarClass()}   w-full`}> 
-         
+            <section className={`md:py-5 py-3 md:px-10 px-5 z-10   ${getNavbarClass()}   w-full`}>
+
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5 ">
                         {/* Logo */}
