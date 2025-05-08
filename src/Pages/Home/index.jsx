@@ -14,8 +14,9 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <Discover />
       <About/>
+      <Discover />
+     
       <Explorebeats />
       <Success/>
       <Browsebeats />

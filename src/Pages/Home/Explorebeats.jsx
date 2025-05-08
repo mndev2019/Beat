@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import plus from '../../assets/Image/plus.svg'
 import hiphop from '../../assets/Image/newhiphop.png'
 import soul from '../../assets/Image/SOUL.png'
 import kpop from '../../assets/Image/kpop.png'
@@ -7,10 +6,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'
+
 
 const Explorebeats = () => {
-    const navigate = useNavigate();
+
     let sliderRef = useRef(null);
     const next = () => {
         sliderRef.slickNext();
@@ -76,16 +75,16 @@ const Explorebeats = () => {
                             <h2 className='md:text-[38px] text-[25px] md:font-[700] font-[400] text-white'>
                                 Explore Endless Beats
                             </h2>
-                            <p className='text-justify text-[#B8B8B8] md:text-[17px] text-[13px]  font-[400] md:pt-3 pt-1'>
+                            {/* <p className='text-justify text-[#B8B8B8] md:text-[17px] text-[13px]  font-[400] md:pt-3 pt-1'>
                                 Say goodbye to interruptions and enjoy uninterrupted music<span className='sm:block'> streaming. With our ad-free platform, you’ll have access to</span> millions to songs
-                            </p>
+                            </p> */}
                         </div>
-                        <div className="md:mt-0 mt-4">
+                        {/* <div className="md:mt-0 mt-4">
                             <button className='md:text-[20px] text-[15px] font-[600] bg-white px-4 py-2 rounded-[14px] flex gap-2 items-center' onClick={()=> navigate('/addbeat')}>
                                 <img src={plus} alt='image' className='h-[25px]' />
                                 Add Beat
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="mt-10 relative">
                         <Slider ref={(slider) => (sliderRef = slider)} {...settings}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import phone from '../../assets/Image/phone.png'
 import { GoCheckCircleFill } from 'react-icons/go'
+import { Link } from 'react-router-dom'
 
 const BuyBeats = () => {
     return (
@@ -26,9 +27,12 @@ const BuyBeats = () => {
                             )}
                         </ul>
                         <div className='sm:pt-8 pt-4'>
-                            <button className="md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300">
-                                Buy Your Beats
-                            </button>
+                            <Link to="https://play.google.com/store/apps/details?id=com.projectbeat.app">
+                                <button className="md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300">
+                                    Buy Your Beats
+                                </button>
+                            </Link>
+
                         </div>
                     </div>
                     {/* Right Content (Mockups) */}

@@ -68,19 +68,19 @@ const MembershipHiostry = () => {
                                                     <LuCircleCheckBig className="" /> Purchase On - 01 Aug 2024
                                                 </li>
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> Seller - INR 129/month
+                                                    <LuCircleCheckBig className="" /> Seller - INR {itm?.membership?.price}/{itm?.membership?.membership_period}
                                                 </li>
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> Duration - 1 Months
+                                                    <LuCircleCheckBig className="" /> Duration - {itm?.membership?.membership_period_count} {itm?.membership?.membership_period}
                                                 </li>
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> No. of Beat Can Upload - 5
+                                                    <LuCircleCheckBig className="" /> No. of Beat Can Upload - {itm?.membership?.no_of_beat_limit}
                                                 </li>
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> No. of Beat Remaining for Upload - 9
+                                                    <LuCircleCheckBig className="" /> No. of Beat Remaining for Upload - {itm?.membership.upload_beat_limit - itm?.membership.buy_beat_limit}
                                                 </li>
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> No. of Beat Uploaded - 4
+                                                    <LuCircleCheckBig className="" /> No. of Beat Uploaded - {itm?.membership.buy_beat_limit}
                                                 </li>
                                             </ul>
                                         </div>

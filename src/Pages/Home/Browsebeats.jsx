@@ -18,11 +18,11 @@ const Browsebeats = () => {
                                     <span className="md:block">easy-to-use Mobile Application.</span>
                                     Click and start your creative journey!
                                 </p>
-                                <div className="lg:pt-5 pt-2">
+                                {/* <div className="lg:pt-5 pt-2">
                                     <button className="md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300">
                                         Browse Beats
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 

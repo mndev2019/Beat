@@ -16,11 +16,11 @@ const Discover = () => {
                                 <p className='text-[#B8B8B8] xl:text-[20px] sm:text-[18px] text-[13px] font-[500] text-justify py-3'>
                                     On our Mobile Application, you can access an amazing collection of popular and new beats. Stream your favorite beats in high quality and enjoy without interruptions. Whatever your taste in beats, we have it all for you!
                                 </p>
-                                <div className='lg:pt-5 pt-2'>
+                                {/* <div className='lg:pt-5 pt-2'>
                                     <button className='md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300'>
                                         Discover Now
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

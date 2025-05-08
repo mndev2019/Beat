@@ -21,11 +21,11 @@ const Success = () => {
                                 <p className='text-[#B8B8B8] md:text-[17px] text-[13px] font-normal pt-3 leading-relaxed text-justify'>
                                     Project Beat's initial mission is to attract a diverse range of music creators to upload their  beats onto the platform. This will create a rich library for artists to explore and find the  perfect fit for their projects. Project Beat even prioritizes exclusive licenses, ensuring fair  compensation for producers while guaranteeing artists ownership of their final creations.
                                 </p>
-                                <div className='pt-5'>
+                                {/* <div className='pt-5'>
                                     <button className=' md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300'>
                                         Learn More
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

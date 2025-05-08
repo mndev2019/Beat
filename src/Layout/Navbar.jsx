@@ -4,12 +4,13 @@ import cart from '../assets/Image/cart.svg'
 
 
 // import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const token = localStorage.getItem("token")
     const [isOpen, setIsOpen] = useState(false);
 
@@ -29,8 +30,12 @@ const Navbar = () => {
 
     // Function to check if we are on the home page
     const getNavbarClass = () => {
-        return location.pathname === '/' ? 'absolute' : '';
+        return location.pathname === '/' ? 'md:absolute' : '';
     };
+    const handlelogout = ()=>{
+        localStorage.clear();
+        navigate('/login')
+    }
 
 
     const navlist = (
@@ -61,6 +66,11 @@ const Navbar = () => {
                                 </button>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to="">
+                                <button className='rounded-[16px] py-3 px-5 signbtn' onClick={handlelogout}>Log out</button>
+                            </NavLink>
+                        </li>
                     </>
                 ) : (
                     <>
@@ -88,7 +98,7 @@ const Navbar = () => {
 
     return (
         <>
-            <section className={`md:py-5 py-3 md:px-10 px-5 z-10   ${getNavbarClass()}   w-full`}>
+            <section className={`md:py-5 py-1 md:px-10 px-3 z-10   ${getNavbarClass()}   w-full`}>
 
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5 ">

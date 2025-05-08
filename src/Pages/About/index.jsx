@@ -4,11 +4,7 @@ import about2 from '../../assets/Image/about2.png'
 import about3 from '../../assets/Image/about3.png'
 
 const About = () => {
-    const buttons = [
-        'Easiest',
-        'Best Possible Way To Sell',
-        'Buy Music Beats',
-    ];
+    
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms about'>
@@ -16,21 +12,21 @@ const About = () => {
                     <div className="grid grid-cols-1 pb-4">
                         <div className="col-span-1 text-center">
                             <h2 className='poppins font-[700] md:text-[30px] text-[20px] text-[#DB28A9]'>
-                                <span className='text-white'>Welcome to </span>  Our Beat Music
+                                <span className='text-white'>Welcome to </span>  Our Project Beat Music
                             </h2>
                         </div>
                     </div>
                     <div className="grid grid-cols-1">
                         <div className="col-span-1">
                             <div className="flex flex-wrap justify-center gap-4 md:pt-5 pt-0 pb-8">
-                                {buttons.map((label, index) => (
+                                
                                     <button
-                                        key={index}
-                                        className="text-white px-6 py-2 rounded-full border border-[#F38BDC] poppins bg-[#FFFFFF17] text-center text-sm sm:text-base"
+                                       
+                                        className="text-white px-6 py-2 rounded-full border border-[#F38BDC] poppins bg-[#FFFFFF17] text-center text-sm sm:text-base md:text-[15px] text-[12px]"
                                     >
-                                        {label}
+                                        Easiest , Best Possible Way To Sell and Buy Music Beats
                                     </button>
-                                ))}
+                               
                             </div>
                         </div>
                     </div>
@@ -39,7 +35,7 @@ const About = () => {
                     <div className="grid grid-cols-1 text-center">
                         <div className="col-span-1">
                             <p className='text-[#B8B8B8] poppins font-[400]  md:text-[15px] text-[12px] text-center'>
-                                Welcome to Beat, the ultimate destination for music enthusiasts! Buyers, explore and license beats seamlessly—preview, choose, and download instantly. Sellers, showcase your talent by creating a profile, uploading beats, and setting prices. Connect with a global audience and monetize your creations effortlessly. Join our vibrant community, where music meets innovation. Elevate your sound, whether you're discovering beats or making your mark as a talented beat producer. Let Beat be your platform for musical inspiration and success!
+                                Welcome to Project Beat, the ultimate destination for music enthusiasts! Buyers, explore and license beats seamlessly—preview, choose, and download instantly. Sellers, showcase your talent by creating a profile, uploading beats, and setting prices. Connect with a global audience and monetize your creations effortlessly. Join our vibrant community, where music meets innovation. Elevate your sound, whether you're discovering beats or making your mark as a talented beat producer. Let Beat be your platform for musical inspiration and success!
                             </p>
                         </div>
                     </div>
