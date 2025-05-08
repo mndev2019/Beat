@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import profile from '../../assets/Image/profile.png';
 import cart from '../../assets/Image/cart.svg';
 import Beatcard from './Beatcard';
 import Ordersummary from './Ordersummary';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../../Api/Baseurl';
+import moment from 'moment';
 
 const Cart = () => {
     const navigate = useNavigate();
+    const [data, setdata] = useState([]);
+    const handleget = async () => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const resp = await axios.get(`${BASE_URL}user`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setdata(resp.data.data);
+        } catch (error) {
+            console.error("Error fetching cart data:", error);
+        }
+    };
+    useEffect(() => {
+        handleget();
+    }, [])
 
     return (
         <>
@@ -19,24 +41,41 @@ const Cart = () => {
                     </div>
 
                     <div className="flex flex-col lg:flex-row justify-between gap-6 mt-6">
+
                         {/* Left: Profile Info */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <div className="flex justify-center sm:justify-start">
-                                <img src={profile} alt="profile" className="h-[100px] w-[100px] object-cover rounded-full" />
+                                <img
+                                    src={`${BASE_URL}${data?.image}`}
+                                    alt="profile"
+                                    className="h-[100px] w-[100px] object-cover rounded-full"
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = profile;
+                                    }}
+                                />
                             </div>
                             <div>
                                 <p className="text-[#DB28A9] poppins font-[500] text-[15px]">
-                                    User Name: <span className="text-white">Rozzey</span>
+                                    User Name: <span className="text-white">{data?.name}</span>
                                 </p>
                                 <p className="text-[#DB28A9] poppins font-[500] text-[15px]">
-                                    Phone Number: <span className="text-white">7896262563</span>
+                                    Phone Number: <span className="text-white">{data?.phone}</span>
                                 </p>
                                 <p className="text-[#DB28A9] poppins font-[500] text-[15px]">
-                                    Membership Expired At: <span className="text-white">05/04/2025</span>
+                                    Membership Expired At:{" "}
+                                    <span className="text-white">
+                                        {data?.membership_expired_at
+                                            ? moment(data?.membership_expired_at).format("DD/MM/YYYY")
+                                            : "N/A"}
+                                    </span>
                                 </p>
                                 <div className="flex flex-wrap items-center gap-4 mt-3">
-                                    <button className="bg-[#009D5E] text-white poppins text-[12px] font-[400] px-5 py-1 rounded-[8px]">
-                                        Active
+                                    <button
+                                        className={`text-white poppins text-[12px] font-[400] px-5 py-1 rounded-[8px] ${data?.is_active === true ? "bg-[#009D5E]" : "bg-red-600"
+                                            }`}
+                                    >
+                                        {data?.is_active === true ? "Active" : "Inactive"}
                                     </button>
                                     <button className="border border-[#861577] rounded-full px-3 py-1">
                                         <img src={cart} alt="cart" className="h-5" />
@@ -44,6 +83,8 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
+
+
 
                         {/* Right: Membership Buttons */}
                         <div className="flex flex-col gap-4 w-full lg:w-auto">

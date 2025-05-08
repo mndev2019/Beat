@@ -1,8 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { FaCrown } from 'react-icons/fa'
 import { LuCircleCheckBig } from 'react-icons/lu'
+import { BASE_URL } from '../../Api/Baseurl';
 
 const MembershipHiostry = () => {
+        const [data, setdata] = useState([]);
+        const handleget = async () => {
+            try {
+                const token = localStorage.getItem("token");
+    
+                const resp = await axios.get(`${BASE_URL}membership_history`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+    
+                setdata(resp.data.data);
+            } catch (error) {
+                console.error("Error fetching cart data:", error);
+            }
+        };
+        useEffect(() => {
+            handleget();
+        }, [])
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms'>
@@ -16,7 +37,7 @@ const MembershipHiostry = () => {
                     </div>
                     <div className="grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-5">
                         {
-                            [1, 2, 3, 4].map(() => (
+                            data?.map((itm) => (
                                 <>
                                     <div className="col-span-1 mt-5">
                                         <div className=" md:p-6 p-5 rounded-2xl border border-[#AF96BC]  text-white" style={{
@@ -25,7 +46,7 @@ const MembershipHiostry = () => {
                                             {/* Header */}
                                             <div className="text-center mb-4">
                                                 <div className="border border-[#F38BDC] rounded-full sm:px-6 px-4 py-2 inline-block sm:text-sm text-xs font-[500] bg-[#FFFFFF17]">
-                                                    BUYER THREE MONTH
+                                                   {itm?.membership?.heading}
                                                 </div>
                                             </div>
 
@@ -34,11 +55,11 @@ const MembershipHiostry = () => {
                                                 <div className="flex items-center gap-3">
                                                     <div className="bg-[linear-gradient(180deg,_#FD5900_-54.73%,_#D38C28_236.27%)] p-2 rounded-full text-white text-lg"><FaCrown className="text-white" /></div>
                                                     <div>
-                                                        <p className="font-semibold md:text-[16px] text-[14px] poppins">5 Beat</p>
+                                                        <p className="font-semibold md:text-[16px] text-[14px] poppins">{itm?.membership?.no_of_beat_limit} Beat</p>
                                                         <p className="sm:text-sm text-xs text-[#B8B8B8] poppins">Validity One Month</p>
                                                     </div>
                                                 </div>
-                                                <div className="sm:text-xl text-lg font-semibold">₹ 129</div>
+                                                <div className="sm:text-xl text-lg font-semibold">₹ {itm?.membership?.price}</div>
                                             </div>
 
                                             {/* Details */}

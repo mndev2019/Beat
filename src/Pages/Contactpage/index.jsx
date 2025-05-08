@@ -8,8 +8,6 @@ import circlethree from '../../assets/Image/thirdcircle.png';
 import plane from '../../assets/Image/plane.png'
 
 const Contactpage = () => {
- 
-
   return (
     <>
       <section className='lg:px-20 md:px-10 px-5 md:py-10 py-5 terms'>
@@ -33,7 +31,7 @@ const Contactpage = () => {
                       <input
                         type="text"
                         placeholder="First Name"
-                       
+
                         className="w-full rounded-full md:p-3 p-2 bg-[#2D1A38] text-white outline-none md:text-[15px] text-[12px]" />
                     </div>
                     <div className='col-span-1'>
@@ -54,10 +52,6 @@ const Contactpage = () => {
                     </div>
                   </div>
                 </form>
-
-
-
-
                 <div className="flex flex-wrap justify-between items-center">
                   <div className="space-y-1">
                     <div className="text-white flex items-center gap-2 md:text-[15px] text-[12px] font-[600] poppins">
