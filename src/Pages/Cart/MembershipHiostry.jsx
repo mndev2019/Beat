@@ -3,27 +3,28 @@ import React, { useEffect, useState } from 'react'
 import { FaCrown } from 'react-icons/fa'
 import { LuCircleCheckBig } from 'react-icons/lu'
 import { BASE_URL } from '../../Api/Baseurl';
+import moment from 'moment';
 
 const MembershipHiostry = () => {
-        const [data, setdata] = useState([]);
-        const handleget = async () => {
-            try {
-                const token = localStorage.getItem("token");
-    
-                const resp = await axios.get(`${BASE_URL}membership_history`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-    
-                setdata(resp.data.data);
-            } catch (error) {
-                console.error("Error fetching cart data:", error);
-            }
-        };
-        useEffect(() => {
-            handleget();
-        }, [])
+    const [data, setdata] = useState([]);
+    const handleget = async () => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const resp = await axios.get(`${BASE_URL}membership_history`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setdata(resp.data.data);
+        } catch (error) {
+            console.error("Error fetching cart data:", error);
+        }
+    };
+    useEffect(() => {
+        handleget();
+    }, [])
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms'>
@@ -46,7 +47,7 @@ const MembershipHiostry = () => {
                                             {/* Header */}
                                             <div className="text-center mb-4">
                                                 <div className="border border-[#F38BDC] rounded-full sm:px-6 px-4 py-2 inline-block sm:text-sm text-xs font-[500] bg-[#FFFFFF17]">
-                                                   {itm?.membership?.heading}
+                                                    {itm?.membership?.heading}
                                                 </div>
                                             </div>
 
@@ -65,7 +66,8 @@ const MembershipHiostry = () => {
                                             {/* Details */}
                                             <ul className="sm:text-sm text-xs space-y-3">
                                                 <li className="flex items-center gap-2">
-                                                    <LuCircleCheckBig className="" /> Purchase On - 01 Aug 2024
+                                                    <LuCircleCheckBig className="" />
+                                                    Purchase On - {moment(itm?.created_at).format('DD MMM YYYY')}
                                                 </li>
                                                 <li className="flex items-center gap-2">
                                                     <LuCircleCheckBig className="" /> Seller - INR {itm?.membership?.price}/{itm?.membership?.membership_period}

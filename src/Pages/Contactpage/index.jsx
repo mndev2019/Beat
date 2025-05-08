@@ -77,11 +77,8 @@ const Contactpage = () => {
                   Send Message
                 </button>
                 <img src={plane} alt='plane' className='mx-auto' />
-
               </div>
             </div>
-
-
           </div>
         </div>
       </section>

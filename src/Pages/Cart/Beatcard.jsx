@@ -61,7 +61,6 @@ const Beatcard = () => {
                                         </p>
                                     </div>
                                 </div>
-
                                 <div className=''>
                                     <button className='border border-[#861577] rounded-full p-2'>
                                         <img src={deleteicon} alt='cart' className='h-5' />

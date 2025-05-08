@@ -65,6 +65,7 @@ const Login = () => {
             if (data.error === 0) {
                 toast.success(data.message);
                 localStorage.setItem("token", data.token);
+                localStorage.setItem("type",data.type);
                 if (data.type === "Buyer") {
                     navigate('/cart')
                 } else {

@@ -7,7 +7,6 @@ const Ordersummary = () => {
         <h2 className="text-white poppins font-[600] md:text-[25px] text-[20px] mb-5">
           Order Summary
         </h2>
-
         <div className="space-y-4">
           {/* Subtotal */}
           <div className="flex justify-between items-center">

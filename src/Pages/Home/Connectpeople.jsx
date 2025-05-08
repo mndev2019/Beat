@@ -17,9 +17,15 @@ const Connectpeople = () => {
                                 Join our community for updates, discussions, & support! ✌️
                             </p>
                             <div className='md:mt-10 mt-5'>
-                                <button className="md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300">
-                                    Join Whatsapp Community
-                                </button>
+                                <a
+                                    href="https://wa.me/919315809997"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <button className="md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px] sm:px-3 px-2 py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300">
+                                        Join Whatsapp Community
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <div className="col-span-5 relative lg:block hidden">

@@ -39,7 +39,6 @@ const Cart = () => {
                             <h2 className="poppins font-[700] text-[30px]  text-[#DB28A9]">Cart</h2>
                         </div>
                     </div>
-
                     <div className="flex flex-col lg:flex-row justify-between gap-6 mt-6">
 
                         {/* Left: Profile Info */}
@@ -83,9 +82,6 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
-
-
-
                         {/* Right: Membership Buttons */}
                         <div className="flex flex-col gap-4 w-full lg:w-auto">
                             <button
