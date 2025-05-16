@@ -104,22 +104,35 @@ const Cart = () => {
                         </div>
                     </div>
                     {
-                        type === "Seller" &&
-                        <>
-                            {/* Cards */}
-                            <div className="mt-10">
-                                <Beatcard />
-                            </div>
+                        data.cart ? (
+                            <>
+                                {
+                                    type != "Seller" &&
+                                    <>
+                                        {/* Cards */}
+                                        <div className="mt-10">
+                                            <Beatcard />
+                                        </div>
 
-                            <div className="mt-6">
-                                <Ordersummary />
-                            </div>
-                        </>
+                                        <div className="mt-6">
+                                            <Ordersummary />
+                                        </div>
+                                    </>
+                                }
+                            </>
+                        ):(
+                            <>
+                           <p className='text-white text-sm text-center pt-4 '>
+                            Cart is empty 
+                           </p>
+                            </>
+                        )
                     }
 
 
 
-                   
+
+
                 </div>
             </section>
         </>

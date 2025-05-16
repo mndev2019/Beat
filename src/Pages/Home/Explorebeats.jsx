@@ -1,7 +1,15 @@
 import React, { useRef } from 'react'
-import hiphop from '../../assets/Image/newhiphop.png'
-import soul from '../../assets/Image/SOUL.png'
-import kpop from '../../assets/Image/kpop.png'
+// import hiphop from '../../assets/Image/newhiphop.png'
+// import soul from '../../assets/Image/SOUL.png'
+// import kpop from '../../assets/Image/kpop.png'
+import hiphop from '../../assets/Image/HIPHOPnew.png'
+import soul from '../../assets/Image/SOULnew.png'
+import kpop from '../../assets/Image/DRILLnew.png'
+import crunk from '../../assets/Image/CRUNK.png'
+import gangsts from '../../assets/Image/GANGSTA RAP.png'
+import euphoria from '../../assets/Image/EUPHORIA.png'
+import punjabi from '../../assets/Image/PUNJABI TRAP.png'
+import old from '../../assets/Image/OLD SCHOOL RAP.png'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -56,14 +64,20 @@ const Explorebeats = () => {
             image: kpop,
         },
         {
-            image: hiphop,
+            image: crunk,
         },
         {
-            image: soul,
+            image: gangsts,
         },
         {
-            image: kpop,
-        }
+            image: euphoria,
+        },
+        {
+            image: punjabi,
+        },
+        {
+            image: old,
+        },
     ]
 
     return (

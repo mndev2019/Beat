@@ -3,11 +3,13 @@ import profile from '../../assets/Image/profile.png'
 import deleteicon from '../../assets/Image/deleteicon.png'
 import axios from 'axios';
 import { BASE_URL } from '../../Api/Baseurl';
+import { toast } from 'react-toastify';
 const Beatcard = () => {
+    const token = localStorage.getItem("token");
     const [data, setdata] = useState([]);
     const handleget = async () => {
         try {
-            const token = localStorage.getItem("token");
+
 
             const resp = await axios.get(`${BASE_URL}cart`, {
                 headers: {
@@ -23,8 +25,33 @@ const Beatcard = () => {
     useEffect(() => {
         handleget();
     }, [])
+    const handledelete = async (itemId) => {
+        try {
+            console.log(itemId);
+            const response = await axios.post(
+                `${BASE_URL}delete_cart`,
+                { _id: itemId },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            toast.success("Cart deleted successfully");
+            console.log("Deleted successfully", response.data);
+            handleget();
+        } catch (error) {
+            console.error("Error deleting cart item:", error);
+            toast.error("Failed to delete item. Please try again.");
+        }
+    };
+
+
     return (
         <>
+        
             <div className='md:p-7 p-5 border border-[#AF96BC] rounded-[24px] mt-10' style={{
                 background: 'linear-gradient(254.74deg, #0F1421 0%, #302339 59.55%, #4B2F4D 97.28%)',
             }}>
@@ -62,7 +89,7 @@ const Beatcard = () => {
                                     </div>
                                 </div>
                                 <div className=''>
-                                    <button className='border border-[#861577] rounded-full p-2'>
+                                    <button className='border border-[#861577] rounded-full p-2' onClick={() => handledelete(itm._id)}>
                                         <img src={deleteicon} alt='cart' className='h-5' />
                                     </button>
                                 </div>

@@ -4,6 +4,7 @@ import { LuCircleCheckBig } from 'react-icons/lu'
 import { BASE_URL } from '../../Api/Baseurl';
 
 const Purchasemembership = () => {
+    const token = localStorage.getItem("token")
     const type = localStorage.getItem("type")
     const [data, setdata] = useState([]);
     const handleget = async () => {
@@ -24,6 +25,41 @@ const Purchasemembership = () => {
     useEffect(() => {
         handleget();
     }, [])
+    const handle_putchase_membership = async (e, item) => {
+        e.preventDefault();
+
+        const requestData = {
+            amount: item?.price,
+            type: "membership",
+            productinfo: item._id
+        };
+
+        try {
+            const resp = await axios.post(
+                `${BASE_URL}initiate_payment`,
+                requestData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+            console.log(resp);
+              if (resp.data.url) {
+                    // Success case - redirect to payment gateway or show success message
+
+                    // if there is a URL to navigate to
+                    window.open(resp.data.url, '_blank');
+                } else {
+                    // Failure case - show error message
+                    console.log('Payment initiation failed: ' + resp.message);
+                }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
+    };
+
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms'>
@@ -74,7 +110,8 @@ const Purchasemembership = () => {
                                                 </li>
                                             </ul>
 
-                                            <button className="mt-6 bg-[linear-gradient(270deg,_#4600D9_0%,_#7D3FFF_100%)] hover:opacity-90 text-white py-2 rounded-full w-full font-semibold">
+                                            <button className="mt-6 bg-[linear-gradient(270deg,_#4600D9_0%,_#7D3FFF_100%)] hover:opacity-90 text-white py-2 rounded-full w-full font-semibold" onClick={(e) => (handle_putchase_membership(e, itm))}>
+
                                                 BUY NOW
                                             </button>
                                         </div>
