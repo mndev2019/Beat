@@ -28,6 +28,18 @@ const Ordersummary = () => {
             <p className="text-[#DB28A9] poppins font-[600] text-[15px]">Total :</p>
             <p className="text-white poppins font-[600] text-[15px]">₹ 1000</p>
           </div>
+          {/* Send Message Button */}
+          <div className="mt-10">
+            <button
+              style={{
+                background:
+                  'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
+              }}
+              className="text-white rounded-full text-[16px] font-medium py-3 w-full poppins"
+            >
+              Proceed Payment
+            </button>
+          </div>
         </div>
       </div>
     </>

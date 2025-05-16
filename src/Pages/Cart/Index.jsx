@@ -9,6 +9,7 @@ import { BASE_URL } from '../../Api/Baseurl';
 import moment from 'moment';
 
 const Cart = () => {
+    const type = localStorage.getItem("type")
     const navigate = useNavigate();
     const [data, setdata] = useState([]);
     const handleget = async () => {
@@ -102,28 +103,23 @@ const Cart = () => {
                             </button>
                         </div>
                     </div>
+                    {
+                        type === "Seller" &&
+                        <>
+                            {/* Cards */}
+                            <div className="mt-10">
+                                <Beatcard />
+                            </div>
 
-                    {/* Cards */}
-                    <div className="mt-10">
-                        <Beatcard />
-                    </div>
+                            <div className="mt-6">
+                                <Ordersummary />
+                            </div>
+                        </>
+                    }
 
-                    <div className="mt-6">
-                        <Ordersummary />
-                    </div>
 
-                    {/* Send Message Button */}
-                    <div className="mt-10">
-                        <button
-                            style={{
-                                background:
-                                    'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
-                            }}
-                            className="text-white rounded-full text-[16px] font-medium py-3 w-full poppins"
-                        >
-                            Send Message
-                        </button>
-                    </div>
+
+                   
                 </div>
             </section>
         </>
