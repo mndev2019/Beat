@@ -113,8 +113,13 @@ const Contactpage = () => {
                       </div> */}
                     </div>
                     <div className='flex gap-4 items-center md:mt-0 mt-4'>
-                      <img src={facebook} alt='facebookimg' className='md:h-[30px] h-[25px] md:w-[30px] w-[25px] object-contain' />
+                      <a href="https://www.facebook.com/people/Project-Beat-Records/61556641920870/?mibextid=WC7FNe" target='_blank'>
+                       <img src={facebook} alt='facebookimg' className='md:h-[30px] h-[25px] md:w-[30px] w-[25px] object-contain' />
+                      </a>
+                     <a href="https://www.instagram.com/accounts/login/?next=%2Fprojectbeatrecords%2F&source=omni_redirect" target='_blank'>
                       <img src={insta} alt='instaimg' className='md:h-[30px] h-[25px] md:w-[30px] w-[25px] object-contain' />
+                     </a>
+                     
                     </div>
                   </div>
                   <button type='submit'
