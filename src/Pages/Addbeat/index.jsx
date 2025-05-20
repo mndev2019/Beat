@@ -106,7 +106,7 @@ const Addbeat = () => {
     return (
         <>
             <section className='addbeat'>
-                <div className="container">
+                <div className="container mx-auto">
                     <div className="grid grid-cols-1 pb-5">
                         <div className="col-span-1 text-center">
                             <h2 className='lg:text-[38px] text-[24px] font-[500] text-white'>
@@ -196,7 +196,7 @@ const Addbeat = () => {
                                                         type="file"
                                                         // accept=".mp3,audio/*"
                                                         ref={beatFileRef}
-                                                        className="hidden"
+                                                         className="ml-[129px]"
                                                          required
                                                         onChange={handlebeatfile}
                                                     />
@@ -219,7 +219,7 @@ const Addbeat = () => {
                                                         type="file"
                                                         //  accept=".mp3,audio/*"
                                                         ref={imageRef}
-                                                        className="hidden"
+                                                        className="ml-[129px]"
                                                          required
                                                         onChange={handleimage}
 
@@ -242,7 +242,7 @@ const Addbeat = () => {
                                                         type="file"
                                                         // accept=".mp3"
                                                         ref={davFileRef}
-                                                        className="hidden"
+                                                        className="ml-[129px]"
                                                          required
                                                         onChange={handledavfile}
                                                     />
