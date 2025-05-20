@@ -87,7 +87,7 @@ const Addbeat = () => {
 
             console.log(resp);
             if (resp.data.error === 0) {
-                toast.success("Data Submit Successfully!");
+                toast.success("Beat Add Successfully!");
                 setname("");
                 setprice("");
                 setgenre("");
@@ -96,7 +96,7 @@ const Addbeat = () => {
                 setimage("");
                 setbeat_file("");
             } else {
-                toast.error("Data not Submitted");
+                toast.error("Beat not Submitted");
             }
         } catch (error) {
             console.error("Error submitting form:", error);
