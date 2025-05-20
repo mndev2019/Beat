@@ -72,30 +72,35 @@ const Contactpage = () => {
                         placeholder="First Name"
 
                         className="w-full rounded-full md:p-3 p-2 bg-[#2D1A38] text-white outline-none md:text-[15px] text-[12px]"
+                        required
                         value={name}
                         onChange={(e) => setname(e.target.value)} />
                     </div>
                     <div className='col-span-1'>
                       <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Email</label>
                       <input type="email" placeholder="Your Email" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]"
+                      required
                         value={email}
                         onChange={(e) => setemail(e.target.value)} />
                     </div>
                     <div className='col-span-1'>
                       <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Phone Number</label>
                       <input type="text" placeholder="Your Phone Number" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]"
+                      required
                         value={phone}
                         onChange={(e) => setphone(e.target.value)} />
                     </div>
                     <div className='col-span-1'>
                       <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Address</label>
                       <input type="text" placeholder="Your Address" className="w-full rounded-full  bg-[#2D1A38] text-white outline-none md:p-3 p-2 md:text-[15px] text-[12px]"
+                      required
                         value={address}
                         onChange={(e) => setaddress(e.target.value)} />
                     </div>
                     <div className='lg:col-span-2 col-span-1'>
                       <label className="text-white md:text-[15px] text-[12px] font-medium block mb-1 poppins">Your Message</label>
                       <textarea rows={5} placeholder="Your Message" className="w-full rounded-xl  bg-[#2D1A38] text-white outline-none resize-none md:p-3 p-2 md:text-[15px] text-[12px]"
+                      required
                         value={query}
                         onChange={(e) => setquery(e.target.value)} />
                     </div>

@@ -12,7 +12,7 @@ const Addbeat = () => {
     const [dav_file, setdav_file] = useState("");
     const [image, setimage] = useState("");
     const [beat_file, setbeat_file] = useState("");
-    
+
     const [data, setdata] = useState([]);
     const token = localStorage.getItem("token");
     const handleget = async () => {
@@ -72,7 +72,7 @@ const Addbeat = () => {
         formData.append("dav_file", dav_file);
         formData.append("image", image);
         formData.append("beat_file", beat_file);
-        formData.append("trending" , 0);
+        formData.append("trending", 0);
 
 
         const token = localStorage.getItem("token");
@@ -110,7 +110,7 @@ const Addbeat = () => {
                     <div className="grid grid-cols-1 pb-5">
                         <div className="col-span-1 text-center">
                             <h2 className='lg:text-[38px] text-[24px] font-[500] text-white'>
-                               Upload the best you've got!
+                                Upload the best you've got!
                             </h2>
                         </div>
                     </div>
@@ -125,6 +125,7 @@ const Addbeat = () => {
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Name</label>
                                                 <input type="text"
                                                     className="w-full rounded-full p-3 bg-[#2D1A38] text-white  outline-none"
+                                                    required
                                                     value={name}
                                                     onChange={(e) => setname(e.target.value)}
                                                     placeholder="Beat Name" />
@@ -137,6 +138,7 @@ const Addbeat = () => {
                                                 </label>
                                                 <select
                                                     className="w-full rounded-full p-3 bg-[#2D1A38] text-white outline-none"
+                                                    required
                                                     value={genre}
                                                     onChange={(e) => setgenre(e.target.value)}
                                                 >
@@ -158,6 +160,7 @@ const Addbeat = () => {
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Price ₹</label>
                                                 <input type="text"
                                                     className="w-full rounded-full p-3 bg-[#2D1A38] text-white  outline-none"
+                                                    required
                                                     value={price}
                                                     onChange={(e) => setprice(e.target.value)}
                                                     placeholder="Beat Price ₹" />
@@ -168,6 +171,7 @@ const Addbeat = () => {
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">DAW File Link</label>
                                                 <input type="text"
                                                     className="w-full rounded-full p-3 bg-[#2D1A38] text-white  outline-none"
+                                                    required
                                                     value={daw_link}
                                                     onChange={(e) => setdaw_link(e.target.value)}
                                                     placeholder="enter file link" />
@@ -181,6 +185,7 @@ const Addbeat = () => {
 
                                                 <div
                                                     className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center cursor-pointer"
+                                                    
                                                     onClick={handleBeatFileClick}
 
                                                 >
@@ -192,6 +197,7 @@ const Addbeat = () => {
                                                         // accept=".mp3,audio/*"
                                                         ref={beatFileRef}
                                                         className="hidden"
+                                                         required
                                                         onChange={handlebeatfile}
                                                     />
                                                 </div>
@@ -202,6 +208,7 @@ const Addbeat = () => {
                                             <div>
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Thumbnail</label>
                                                 <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
+                                                  
                                                     onClick={handleImageClick}
 
                                                 >
@@ -213,6 +220,7 @@ const Addbeat = () => {
                                                         //  accept=".mp3,audio/*"
                                                         ref={imageRef}
                                                         className="hidden"
+                                                         required
                                                         onChange={handleimage}
 
                                                     />
@@ -223,6 +231,7 @@ const Addbeat = () => {
                                             <div>
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Steams</label>
                                                 <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
+                                                   
                                                     onClick={handleDavFileClick}
 
                                                 >
@@ -234,6 +243,7 @@ const Addbeat = () => {
                                                         // accept=".mp3"
                                                         ref={davFileRef}
                                                         className="hidden"
+                                                         required
                                                         onChange={handledavfile}
                                                     />
                                                 </div>
