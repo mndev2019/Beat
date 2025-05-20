@@ -3,8 +3,10 @@ import about from '../../assets/Image/about.svg'
 
 // import phone from '../../assets/Image/phone.png'
 import { GoCheckCircleFill } from 'react-icons/go'
+import { useNavigate } from 'react-router-dom'
 
 const About = () => {
+    const navigate = useNavigate();
     return (
         <>
             <section className='about  lg:px-20 px-10 md:pb-0 pb-10'>
@@ -23,11 +25,11 @@ const About = () => {
                                 <p className='text-[#B8B8B8] md:text-[17px] text-[13px] font-normal pt-3 leading-relaxed text-justify'>
                                     This app lets you sell your creations and build  a passive income as a musician. Project Beat is here to bridge that gap! India's first mobile  application dedicated to buying and selling musical beats and instrumentals.
                                 </p>
-                                {/* <div className='pt-5'>
-                                    <button className=' md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300'>
+                                <div className='pt-5'>
+                                    <button className=' md:text-[19px] sm:text-[15px] text-[12px] font-[600] bg-white md:rounded-[12px] sm:rounded-[10px] rounded-[8px]  sm:px-3 px-2  py-2 text-black cursor-pointer transition-all duration-300 hover:bg-gray-300' onClick={()=> navigate('/about')}>
                                         Learn More
                                     </button>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>
