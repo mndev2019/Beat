@@ -60,13 +60,13 @@ const Login = () => {
         };
         try {
             const response = await axios.post(`${BASE_URL}verify_otp`, requestData);
-            const data = response.data;
 
-            if (data.error === 0) {
-                toast.success(data.message);
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("type",data.type);
-                if (data.type === "Buyer") {
+
+            if (response.data.error == 0) {
+                toast.success(response.data.message);
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("type", response.data.type);
+                if (response.data.type === "Buyer") {
                     navigate('/cart')
                 } else {
                     navigate('/addbeat')
@@ -74,9 +74,9 @@ const Login = () => {
 
 
             } else {
-                toast.error(data.message);
+                toast.error(response.data.message);
             }
-            console.log(data);
+            console.log(response.data);
         } catch (error) {
             console.error("OTP verification failed:", error);
             toast.error("Something went wrong. Please try again.");

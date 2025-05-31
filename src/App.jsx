@@ -18,6 +18,7 @@ import Purchasemembership from './Pages/Cart/Purchasemembership'
 import About from './Pages/About'
 
 
+
 function App() {
   const ThemeRoute = createBrowserRouter(
     createRoutesFromElements(
@@ -26,17 +27,18 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/addbeat' element={<Addbeat />} />
           <Route path='/contact' element={<Contactpage />} />
-          <Route path='/about' element={<About/>}/>
+          <Route path='/about' element={<About />} />
           <Route path='/terms-condition' element={<TermsCondition />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/music' element={<Music />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/membership-hiostry' element={<MembershipHiostry/>}/>
-          <Route path='/purchase-membership' element={<Purchasemembership/>}/>
+          <Route path='/membership-hiostry' element={<MembershipHiostry />} />
+          <Route path='/purchase-membership' element={<Purchasemembership />} />
         </Route>
         <Route element={<Authlayout />}>
           <Route path='/login' element={<Login />} />
           <Route path='/otp' element={<Otp />} />
+
         </Route>
 
 
