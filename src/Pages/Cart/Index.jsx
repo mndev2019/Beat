@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import profile from '../../assets/Image/profile.png';
-import cart from '../../assets/Image/cart.svg';
+import profile from '../../assets/Image/newprofile.jpg';
+// import cart from '../../assets/Image/cart.svg';
 import Beatcard from './Beatcard';
 import Ordersummary from './Ordersummary';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../Api/Baseurl';
 import moment from 'moment';
 
-const Cart = () => {
+const Cart = ({ isProfileView = false }) => {
     const type = localStorage.getItem("type")
     const navigate = useNavigate();
     const [data, setdata] = useState([]);
@@ -37,7 +37,7 @@ const Cart = () => {
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1">
                         <div className="col-span-1 text-center">
-                            <h2 className="poppins font-[700] text-[30px]  text-[#DB28A9]">Cart</h2>
+                            <h2 className="poppins font-[700] text-[30px]  text-[#DB28A9]"> {isProfileView ? "Profile" : "Cart"}</h2>
                         </div>
                     </div>
                     <div className="flex flex-col lg:flex-row justify-between gap-6 mt-6">
@@ -77,64 +77,68 @@ const Cart = () => {
                                     >
                                         {data?.is_active === true ? "Active" : "Inactive"}
                                     </button>
-                                    <button className="border border-[#861577] rounded-full px-3 py-1">
+                                    {/* <button className="border border-[#861577] rounded-full px-3 py-1">
                                         <img src={cart} alt="cart" className="h-5" />
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
                         </div>
                         {/* Right: Membership Buttons */}
                         <div className="flex flex-col gap-4 w-full lg:w-auto">
-                            <button
-                                className="text-white poppins text-[15px] font-[500] border border-[#861577] py-2 px-5 rounded-full"
-                                onClick={() => navigate('/membership-hiostry')}
-                            >
-                                Membership History
-                            </button>
-                            <button
-                                className="text-white poppins text-[15px] font-[500] py-2 px-5 rounded-full"
-                                onClick={() => navigate('/purchase-membership')}
-                                style={{
-                                    background:
-                                        'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
-                                }}
-                            >
-                                Purchase Membership
-                            </button>
+                            {isProfileView ? (
+
+                                type === "Seller" && (
+                                    <button
+                                        className="text-white poppins text-[15px] font-[500] py-2 px-8 rounded-full"
+                                        onClick={() => navigate('/addbeat')}
+                                        style={{
+                                            background:
+                                                'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
+                                        }}
+                                    >
+                                        Add Beat
+                                    </button>
+                                )
+                            ) : (
+                                <>
+                                    <button
+                                        className="text-white poppins text-[15px] font-[500] border border-[#861577] py-2 px-5 rounded-full"
+                                        onClick={() => navigate('/membership-hiostry')}
+                                    >
+                                        Membership History
+                                    </button>
+                                    <button
+                                        className="text-white poppins text-[15px] font-[500] py-2 px-5 rounded-full"
+                                        onClick={() => navigate('/purchase-membership')}
+                                        style={{
+                                            background:
+                                                'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
+                                        }}
+                                    >
+                                        Purchase Membership
+                                    </button>
+                                </>
+                            )}
                         </div>
                     </div>
-                    {
-                        data.cart ? (
-                            <>
-                                {
-                                    type != "Seller" &&
-                                    <>
-                                        {/* Cards */}
-                                        <div className="mt-10">
-                                            <Beatcard />
-                                        </div>
-
-                                        <div className="mt-6">
-                                            <Ordersummary />
-                                        </div>
-                                    </>
-                                }
-                            </>
-                        ) : (
-                            <>
-                                {type !== "Seller" && (
-                                    <p className='text-white text-sm text-center pt-4'>
-                                        Cart is empty
-                                    </p>
-                                )}
-                            </>
-                        )
-                    }
-
-
-
-
-
+                    {!isProfileView && type !== "Seller" && (
+                        <>
+                            {data.cart ? (
+                                <>
+                                    <div className="mt-10">
+                                        <Beatcard />
+                                    </div>
+                                    <div className="mt-6">
+                                        <Ordersummary />
+                                    </div>
+                                </>
+                            ) : (
+                                <p className="text-white text-sm text-center pt-4">
+                                    Cart is empty
+                                </p>
+                            )}
+                        </>
+                    )}
                 </div>
             </section>
         </>

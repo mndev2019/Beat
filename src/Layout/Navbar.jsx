@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/Image/logo.svg';
 import cart from '../assets/Image/cart.svg'
+import profile from '../assets/Image/newprofile.jpg';
 
 
 // import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
+import axios from 'axios';
+import { BASE_URL } from '../Api/Baseurl';
 
 
 const Navbar = () => {
@@ -14,6 +17,25 @@ const Navbar = () => {
     const type = localStorage.getItem("type")
     const token = localStorage.getItem("token")
     const [isOpen, setIsOpen] = useState(false);
+    const [data, setdata] = useState([]);
+    const handleget = async () => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const resp = await axios.get(`${BASE_URL}user`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setdata(resp.data.data);
+        } catch (error) {
+            console.error("Error fetching cart data:", error);
+        }
+    };
+    useEffect(() => {
+        handleget();
+    }, [])
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -45,6 +67,7 @@ const Navbar = () => {
                 <NavLink
                     to="/"
                     className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
+                    onClick={() => setIsOpen(!open)}
                 >
                     Home
                 </NavLink>
@@ -53,6 +76,7 @@ const Navbar = () => {
                 <NavLink
                     to="/contact"
                     className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
+                    onClick={() => setIsOpen(!open)}
                 >
                     Contact
                 </NavLink>
@@ -63,7 +87,7 @@ const Navbar = () => {
                         {
                             type === "Buyer" && (
                                 <li>
-                                    <NavLink to="/cart">
+                                    <NavLink to="/cart" onClick={() => setIsOpen(!open)}>
                                         <button>
                                             <img src={cart} alt='cart' />
                                         </button>
@@ -71,13 +95,29 @@ const Navbar = () => {
                                 </li>
                             )
                         }
+                        <li>
+                            <div className='h-[45px] w-[45px] rounded-full'
+                                onClick={() => {
+                                    setIsOpen(!open);
+                                    navigate('/profile');
+                                }}>
+                                <img src={`${BASE_URL}${data.image}`} alt='profile-img' className='h-[45px] w-[45px] rounded-full object-cover'
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = profile;
+                                    }} />
+                            </div>
 
-
+                        </li>
                         {type === "Seller" && (
                             <li>
                                 <button
                                     className="cursor-pointer rounded-[16px] py-3 px-5 signbtn"
-                                    onClick={() => navigate('/addbeat')}
+                                    onClick={() => {
+                                        setIsOpen(!open);
+                                        navigate('/addbeat');
+                                    }}
+
                                 >
                                     Add Beat
                                 </button>
@@ -89,6 +129,7 @@ const Navbar = () => {
                                 <button className='rounded-[16px] py-3 px-5 signbtn' onClick={handlelogout}>Log out</button>
                             </NavLink>
                         </li>
+
                     </>
                 ) : (
                     <>

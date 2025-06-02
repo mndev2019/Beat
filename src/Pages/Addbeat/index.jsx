@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiUpload } from 'react-icons/fi'
 import { BASE_URL } from '../../Api/Baseurl';
 import { toast } from 'react-toastify';
@@ -123,7 +123,7 @@ const Addbeat = () => {
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 pb-5">
                         <div className="col-span-1 text-center">
-                            <h2 className='lg:text-[38px] text-[24px] font-[500] text-white'>
+                            <h2 className='lg:text-[38px] text-[22px] font-[500] text-white lg:my-0 mt-4'>
                                 Upload the best you've got!
                             </h2>
                         </div>
@@ -321,15 +321,15 @@ const Addbeat = () => {
 
                                                 <input
                                                     type="file"
-                                                      id="uploadsteam"
+                                                    id="uploadsteam"
                                                     // accept="audio/*"
                                                     onChange={handledavfile}
                                                     className="mt-4 block w-full text-sm text-white
-        file:mr-4 file:py-2 file:px-4
-        file:rounded-full file:border-0
-        file:text-sm file:font-semibold
-        file:bg-[#861577] file:text-white
-        hover:file:bg-[#a42093]"
+                                                       file:mr-4 file:py-2 file:px-4
+                                                        file:rounded-full file:border-0
+                                                          file:text-sm file:font-semibold
+                                                   file:bg-[#861577] file:text-white
+                                                    hover:file:bg-[#a42093]"
                                                     required
                                                 />
                                             </label>

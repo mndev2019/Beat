@@ -32,6 +32,7 @@ function App() {
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/music' element={<Music />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path="/profile" element={<Cart isProfileView={true} />} />
           <Route path='/membership-hiostry' element={<MembershipHiostry />} />
           <Route path='/purchase-membership' element={<Purchasemembership />} />
         </Route>
