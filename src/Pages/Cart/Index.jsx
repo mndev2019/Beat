@@ -103,31 +103,33 @@ const Cart = () => {
                             </button>
                         </div>
                     </div>
-                    {/* {
-                        data.cart ? (
-                            <> */}
                     {
-                        type != "Seller" &&
-                        <>
-                            {/* Cards */}
-                            <div className="mt-10">
-                                <Beatcard />
-                            </div>
-
-                            <div className="mt-6">
-                                <Ordersummary />
-                            </div>
-                        </>
-                    }
-                    {/* </>
-                        ):(
+                        data.cart ? (
                             <>
-                           <p className='text-white text-sm text-center pt-4 '>
-                            Cart is empty 
-                           </p>
+                                {
+                                    type != "Seller" &&
+                                    <>
+                                        {/* Cards */}
+                                        <div className="mt-10">
+                                            <Beatcard />
+                                        </div>
+
+                                        <div className="mt-6">
+                                            <Ordersummary />
+                                        </div>
+                                    </>
+                                }
+                            </>
+                        ) : (
+                            <>
+                                {type !== "Seller" && (
+                                    <p className='text-white text-sm text-center pt-4'>
+                                        Cart is empty
+                                    </p>
+                                )}
                             </>
                         )
-                    } */}
+                    }
 
 
 

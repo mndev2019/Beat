@@ -11,6 +11,7 @@ import { IoClose } from 'react-icons/io5';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const type = localStorage.getItem("type")
     const token = localStorage.getItem("token")
     const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +33,7 @@ const Navbar = () => {
     const getNavbarClass = () => {
         return location.pathname === '/' ? 'md:absolute' : '';
     };
-    const handlelogout = ()=>{
+    const handlelogout = () => {
         localStorage.clear();
         navigate('/login')
     }
@@ -59,13 +60,30 @@ const Navbar = () => {
             {
                 token ? (
                     <>
-                        <li>
-                            <NavLink to="/cart">
-                                <button>
-                                    <img src={cart} alt='cart' />
+                        {
+                            type === "Buyer" && (
+                                <li>
+                                    <NavLink to="/cart">
+                                        <button>
+                                            <img src={cart} alt='cart' />
+                                        </button>
+                                    </NavLink>
+                                </li>
+                            )
+                        }
+
+
+                        {type === "Seller" && (
+                            <li>
+                                <button
+                                    className="cursor-pointer rounded-[16px] py-3 px-5 signbtn"
+                                    onClick={() => navigate('/addbeat')}
+                                >
+                                    Add Beat
                                 </button>
-                            </NavLink>
-                        </li>
+                            </li>
+                        )}
+
                         <li>
                             <NavLink to="">
                                 <button className='rounded-[16px] py-3 px-5 signbtn' onClick={handlelogout}>Log out</button>

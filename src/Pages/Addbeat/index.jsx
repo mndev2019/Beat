@@ -53,14 +53,28 @@ const Addbeat = () => {
         }
     };
 
-    const beatFileRef = useRef(null);
-    const imageRef = useRef(null);
-    const davFileRef = useRef(null);
+    // const beatFileRef = useRef(null);
+    // const imageRef = useRef(null);
+    // const davFileRef = useRef(null);
 
 
-    const handleBeatFileClick = () => beatFileRef.current.click();
-    const handleImageClick = () => imageRef.current.click();
-    const handleDavFileClick = () => davFileRef.current.click();
+    // const handleBeatFileClick = () => beatFileRef.current.click();
+    // const handleImageClick = () => imageRef.current.click();
+    // const handleDavFileClick = () => davFileRef.current.click();
+    // const handleBeatFileClick = () => {
+    //     beatFileRef.current.value = null; // allow re-selecting same file
+    //     beatFileRef.current.click();
+    // };
+
+    // const handleImageClick = () => {
+    //     imageRef.current.value = null;
+    //     imageRef.current.click();
+    // };
+
+    // const handleDavFileClick = () => {
+    //     davFileRef.current.value = null;
+    //     davFileRef.current.click();
+    // };
 
     const handlesubmit = async (e) => {
         e.preventDefault();
@@ -177,7 +191,7 @@ const Addbeat = () => {
                                                     placeholder="enter file link" />
                                             </div>
                                         </div>
-                                        <div className="col-span-1">
+                                        {/* <div className="col-span-1">
                                             <div>
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">
                                                     Beat Audio File
@@ -185,7 +199,7 @@ const Addbeat = () => {
 
                                                 <div
                                                     className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center cursor-pointer"
-                                                    
+
                                                     onClick={handleBeatFileClick}
 
                                                 >
@@ -194,21 +208,48 @@ const Addbeat = () => {
                                                     <span className='mt-2 text-[#B8B8B8] text-[15px] font-[400]'>(mp3)</span>
                                                     <input
                                                         type="file"
-                                                        // accept=".mp3,audio/*"
+                                                        
                                                         ref={beatFileRef}
-                                                         className="ml-[129px]"
-                                                         required
+                                                        
+                                                        className="ml-[129px]"
+                                                        required
                                                         onChange={handlebeatfile}
                                                     />
                                                 </div>
                                             </div>
+                                        </div> */}
+                                        <div className="w-full">
+                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">
+                                                Beat Audio File
+                                            </label>
+
+                                            <div className="w-full rounded-lg p-4 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577]">
+                                                <label htmlFor='uploadbeatfile' className="flex flex-col items-center justify-center">
+                                                    <FiUpload className="text-[#861577] text-2xl mb-2" />
+                                                    <span className="text-[#B8B8B8] text-[15px] font-[400] mb-2">Upload Audio File (mp3)</span>
+
+                                                    <input
+                                                        type="file"
+                                                        id='uploadbeatfile'
+                                                        // accept=".mp3,audio/*"
+                                                        onChange={handlebeatfile}
+                                                        className=" block w-full text-sm text-white file:mr-4 file:py-2 file:px-4
+                                                   file:rounded-full file:border-0
+                                                      file:text-sm file:font-semibold
+                                                    file:bg-[#861577] file:text-white
+                                                    hover:file:bg-[#a42093]"
+                                                        required
+                                                    />
+                                                </label>
+                                            </div>
                                         </div>
 
-                                        <div className="col-span-1">
+
+                                        {/* <div className="col-span-1">
                                             <div>
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Thumbnail</label>
                                                 <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
-                                                  
+
                                                     onClick={handleImageClick}
 
                                                 >
@@ -217,10 +258,11 @@ const Addbeat = () => {
                                                     <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Thumbnail</span>
                                                     <input
                                                         type="file"
-                                                        //  accept=".mp3,audio/*"
+                                                      
                                                         ref={imageRef}
+
                                                         className="ml-[129px]"
-                                                         required
+                                                        required
                                                         onChange={handleimage}
 
                                                     />
@@ -231,7 +273,7 @@ const Addbeat = () => {
                                             <div>
                                                 <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Steams</label>
                                                 <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
-                                                   
+
                                                     onClick={handleDavFileClick}
 
                                                 >
@@ -240,15 +282,60 @@ const Addbeat = () => {
                                                     <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Steams</span>
                                                     <input
                                                         type="file"
-                                                        // accept=".mp3"
+                                                       
                                                         ref={davFileRef}
+                                                        style={{ display: "none" }}
                                                         className="ml-[129px]"
-                                                         required
+                                                        required
                                                         onChange={handledavfile}
                                                     />
                                                 </div>
                                             </div>
+                                        </div> */}
+                                        <div className="col-span-1">
+                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Thumbnail</label>
+                                            <label htmlFor='uploadfile' className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
+                                                <FiUpload className="text-[#861577]" />
+                                                <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Thumbnail</span>
+
+                                                <input
+                                                    type="file"
+                                                    id="uploadfile"
+                                                    accept="image/*"
+                                                    onChange={handleimage}
+                                                    className="mt-4 block w-full text-sm text-white
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-full file:border-0
+                                                             file:text-sm file:font-semibold
+                                                         file:bg-[#861577] file:text-white
+                                                        hover:file:bg-[#a42093]"
+                                                    required
+                                                />
+                                            </label>
                                         </div>
+                                        <div className="col-span-1">
+                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Steams</label>
+                                            <label htmlFor='uploadsteam' className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
+                                                <FiUpload className="text-[#861577]" />
+                                                <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Steams</span>
+
+                                                <input
+                                                    type="file"
+                                                      id="uploadsteam"
+                                                    // accept="audio/*"
+                                                    onChange={handledavfile}
+                                                    className="mt-4 block w-full text-sm text-white
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+        file:text-sm file:font-semibold
+        file:bg-[#861577] file:text-white
+        hover:file:bg-[#a42093]"
+                                                    required
+                                                />
+                                            </label>
+                                        </div>
+
+
                                         <div className="col-span-1">
                                             <button className='lg:text-[18px] text-[15px] font-[500] text-white rounded-full w-full submit lg:py-3 py-2'>Submit for Approval</button>
                                         </div>

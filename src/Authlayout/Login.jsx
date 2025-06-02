@@ -54,34 +54,36 @@ const Login = () => {
             toast.error("Please enter the OTP.");
             return;
         }
+
         const requestData = {
             otp: otp,
             phone: phone,
         };
+
         try {
             const response = await axios.post(`${BASE_URL}verify_otp`, requestData);
 
+            const data = response.data;
 
-            if (response.data.error == 0) {
-                toast.success(response.data.message);
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("type", response.data.type);
-                if (response.data.type === "Buyer") {
-                    navigate('/cart')
+            if (data.error === 0 && data.message !== "Otp Mismatch") {
+                toast.success(data.message);
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("type", data.type);
+
+                if (data.type === "Buyer") {
+                    navigate('/cart');
                 } else {
-                    navigate('/addbeat')
+                    navigate('/addbeat');
                 }
-
-
             } else {
-                toast.error(response.data.message);
+                toast.error(data?.message || "Invalid OTP");
             }
-            console.log(response.data);
         } catch (error) {
             console.error("OTP verification failed:", error);
             toast.error("Something went wrong. Please try again.");
         }
     };
+
 
     const handleResendOtp = async (e) => {
         e.preventDefault();
