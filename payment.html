@@ -1,0 +1,156 @@
+<html>
+
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <button id="ebz-checkout-btn" hidden onclick="execute_payment()">Proceed to Pay</button>
+    <script
+        src="https://ebz-static.s3.ap-south-1.amazonaws.com/easecheckout/v2.0.0/easebuzz-checkout-v2.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            document.getElementById('ebz-checkout-btn').click();
+        }
+        const execute_payment = () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('query');
+            const order = params.get('order');
+            const type = params.get('type');
+            // const user = params.get('user');
+
+            var easebuzzCheckout = new EasebuzzCheckout("S12C58OSWC", 'prod') // for test enviroment pass "test"
+
+            var options = {
+                access_key: query, // access key received via Initiate Payment
+                onResponse: (response) => {
+                    console.log("shaun",response);
+                    if(response.status == "success"){
+                        handleResponse(response)
+                        // window.location.replace("https://projectbeatrecords.in/success.html");
+
+                    }else{
+                        handleResponseFailure(response)
+                        // window.location.replace("https://projectbeatrecords.in/failure.html");
+                    }
+                },
+                theme: "#123456" // color hex
+
+            }
+            easebuzzCheckout.initiatePayment(options);
+        }
+        const handleResponse =(response) => {
+                const params = new URLSearchParams(window.location.search);
+            const query = params.get('query'); 
+
+            const order = params.get('order');
+                const type = params.get('type');
+                const user = params.get('user');
+
+                let json = {
+                    status : response.status ? response.status : "pending",
+                    payment_response : response,
+                    type : type,
+                    user: user
+                }
+
+                if(type=="order"){
+                    json['order_id'] =order
+                }
+                else if(type=="membership"){
+                    json['membership_id'] =order
+                }
+
+                $.ajax({
+                    url: 'https://projectbeatrecords.in:8811/payment_success', // Replace with your server endpoint
+                
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(json),
+                    success: function(serverResponse) {
+                        console.log('Server response:', serverResponse);
+
+                        // if(type == "membership"){
+                        //     applyForIOS(order)
+                        // }
+
+                        // Redirect or show success message
+                        // window.location.href = '/success-page'; // Replace with your success page URL
+                        window.location.replace("https://projectbeatrecords.in/success.html");
+
+                    },
+                    error: function(error) {
+                        console.error('Error posting success data:', error);
+                        window.location.replace("https://projectbeatrecords.in/failure.html");
+                    }
+                });
+        }
+        const handleResponseFailure =(response) => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('query'); 
+
+            const order = params.get('order');
+                const type = params.get('type');
+                const user = params.get('user');
+
+                let json = {
+                    status : response.status ? response.status : "pending",
+                    payment_response : response,
+                    type : type,
+                    user: user
+                }
+
+                if(type=="order"){
+                    json['order_id'] =order
+                }
+                else if(type=="membership"){
+                    json['membership_id'] =order
+                }
+
+                $.ajax({
+                   
+                    url: 'https://projectbeatrecords.in:8811/payment_failure', // Replace with your server endpoint
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(json),
+                    success: function(serverResponse) {
+                        window.location.replace("https://projectbeatrecords.in/failure.html");
+                    },
+                    error: function(error) {
+                        console.error('Error posting success data:', error);
+                        window.location.replace("https://projectbeatrecords.in/failure.html");
+                    }
+                });
+        }
+
+        const applyForIOS = (order) => {
+
+            const params = new URLSearchParams(window.location.search);
+            const user = params.get('user');
+
+            $.ajax({
+                    url: 'https://projectbeatrecords.in:8811/apply_membership_away', // Replace with your server endpoint
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({"membership" : order,user_id : user}),
+                    success: function(serverResponse) {
+                        console.log('Server response:', serverResponse);
+                        // Redirect or show success message
+                        window.location.href = '/success-page'; // Replace with your success page URL
+                    },
+                    error: function(error) {
+                        console.error('Error posting success data:', error);
+                        // Handle the error scenario
+                    }
+                });
+        }
+
+    </script>
+</body>
+
+
+</html>
