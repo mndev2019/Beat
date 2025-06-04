@@ -109,7 +109,7 @@ const Navbar = () => {
                             </div>
 
                         </li>
-                        {type === "Seller" && (
+                        {/* {type === "Seller" && (
                             <li>
                                 <button
                                     className="cursor-pointer rounded-[16px] py-3 px-5 signbtn"
@@ -122,7 +122,7 @@ const Navbar = () => {
                                     Add Beat
                                 </button>
                             </li>
-                        )}
+                        )} */}
 
                         <li>
                             <NavLink to="">
