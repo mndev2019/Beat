@@ -118,6 +118,8 @@ const Ordersummary = () => {
     }
   };
 
+  if (data.length === 0) return null;
+
 
   return (
     <>
@@ -162,6 +164,9 @@ const Ordersummary = () => {
           </div>
         </div>
       </div>
+
+
+
     </>
   )
 }

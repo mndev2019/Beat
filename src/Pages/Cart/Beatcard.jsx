@@ -40,6 +40,7 @@ const Beatcard = () => {
             );
 
             toast.success("Cart deleted successfully");
+            window.location.reload();
             console.log("Deleted successfully", response.data);
             handleget();
         } catch (error) {
@@ -51,54 +52,69 @@ const Beatcard = () => {
 
     return (
         <>
-        
             <div className='md:p-7 p-5 border border-[#AF96BC] rounded-[24px] mt-10' style={{
                 background: 'linear-gradient(254.74deg, #0F1421 0%, #302339 59.55%, #4B2F4D 97.28%)',
             }}>
-                <h2 className='text-white poppins font-[600] md:text-[25px] text-[20px]'>
-                    Beat in cart
-                </h2>
-                {
-                    data?.map((itm) => (
-                        <>
-                            <div className="flex justify-between items-baseline mt-4">
-                                <div className="flex gap-4">
-                                    <div>
-                                        <img
-                                            src={`${BASE_URL}${itm?.beat?.image}`}
-                                            alt="profile"
-                                            className="h-[100px] w-[100px] object-cover rounded-full"
-                                            onError={(e) => {
-                                                e.target.onerror = null;
-                                                e.target.src = profile;
-                                            }}
-                                        />
-                                    </div>
-                                    <div className="flex flex-col justify-between py-1">
-                                        <div>
-                                            <p className="text-white poppins font-[600] md:text-[18px] text-[15px]">
-                                                {itm?.beat?.name}
-                                            </p>
-                                            <p className="text-gray-300 poppins font-[400] text-[14px]">
-                                                R&B Playlist
-                                            </p>
-                                        </div>
-                                        <p className="text-white poppins font-[600] md:text-[18px] text-[15px]">
-                                            ₹ {itm?.beat?.price}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className=''>
-                                    <button className='border border-[#861577] rounded-full p-2' onClick={() => handledelete(itm._id)}>
-                                        <img src={deleteicon} alt='cart' className='h-5' />
-                                    </button>
-                                </div>
-                            </div>
-                        </>
-                    ))
-                }
+            {
+                data.length > 0 ? (
+                    <>
 
-            </div>
+
+                        <h2 className='text-white poppins font-[600] md:text-[25px] text-[20px]'>
+                            Beat in cart
+                        </h2>
+                        {
+                            data?.map((itm) => (
+                                <>
+                                    <div className="flex justify-between items-baseline mt-4">
+                                        <div className="flex gap-4">
+                                            <div>
+                                                <img
+                                                    src={`${BASE_URL}${itm?.beat?.image}`}
+                                                    alt="profile"
+                                                    className="h-[100px] w-[100px] object-cover rounded-full"
+                                                    onError={(e) => {
+                                                        e.target.onerror = null;
+                                                        e.target.src = profile;
+                                                    }}
+                                                />
+                                            </div>
+                                            <div className="flex flex-col justify-between py-1">
+                                                <div>
+                                                    <p className="text-white poppins font-[600] md:text-[18px] text-[15px]">
+                                                        {itm?.beat?.name}
+                                                    </p>
+                                                    <p className="text-gray-300 poppins font-[400] text-[14px]">
+                                                        R&B Playlist
+                                                    </p>
+                                                </div>
+                                                <p className="text-white poppins font-[600] md:text-[18px] text-[15px]">
+                                                    ₹ {itm?.beat?.price}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className=''>
+                                            <button className='border border-[#861577] rounded-full p-2' onClick={() => handledelete(itm._id)}>
+                                                <img src={deleteicon} alt='cart' className='h-5' />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </>
+                            ))
+                        }
+
+
+                    </>
+                ) : (
+                    <>
+                        <p className="text-white text-sm text-center pt-4">
+                            Cart is empty
+                        </p>
+                    </>
+                )
+            }
+
+        </div >
         </>
     )
 }
