@@ -72,7 +72,7 @@ const Beatcard = () => {
                                                 <img
                                                     src={`${BASE_URL}${itm?.beat?.beat_file}`}
                                                     alt="profile"
-                                                    className=" object-cover rounded-full"
+                                                    className=" object-cover rounded-full md:h-auto h-[50px]"
                                                     onError={(e) => {
                                                         e.target.onerror = null;
                                                         e.target.src = profile;
