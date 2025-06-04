@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import profile from '../../assets/Image/profile.png'
+import profile from '../../assets/Image/logo.svg';
 import deleteicon from '../../assets/Image/deleteicon.png'
 import axios from 'axios';
 import { BASE_URL } from '../../Api/Baseurl';
@@ -70,9 +70,9 @@ const Beatcard = () => {
                                         <div className="flex gap-4">
                                             <div>
                                                 <img
-                                                    src={`${BASE_URL}${itm?.beat?.image}`}
+                                                    src={`${BASE_URL}${itm?.beat?.beat_file}`}
                                                     alt="profile"
-                                                    className="h-[100px] w-[100px] object-cover rounded-full"
+                                                    className=" object-cover rounded-full"
                                                     onError={(e) => {
                                                         e.target.onerror = null;
                                                         e.target.src = profile;
