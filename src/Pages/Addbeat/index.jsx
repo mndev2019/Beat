@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { FiUpload } from 'react-icons/fi'
 import { BASE_URL } from '../../Api/Baseurl';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Addbeat = () => {
+    const navigate = useNavigate();
     const [name, setname] = useState("");
     const [price, setprice] = useState("");
     const [genre, setgenre] = useState("");
@@ -109,6 +111,7 @@ const Addbeat = () => {
                 setdav_file("");
                 setimage("");
                 setbeat_file("");
+                navigate("/profile", { state: { isProfileView: true } })
             } else {
                 toast.error("Beat not Submitted");
             }
@@ -314,10 +317,10 @@ const Addbeat = () => {
                                             </label>
                                         </div>
                                         <div className="col-span-1">
-                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Steams</label>
+                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Stems</label>
                                             <label htmlFor='uploadsteam' className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
                                                 <FiUpload className="text-[#861577]" />
-                                                <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Steams</span>
+                                                <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Stems</span>
 
                                                 <input
                                                     type="file"
