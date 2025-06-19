@@ -10,6 +10,7 @@ import { CiMenuFries } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 import axios from 'axios';
 import { BASE_URL } from '../Api/Baseurl';
+import { toast } from 'react-toastify';
 
 
 const Navbar = () => {
@@ -28,9 +29,16 @@ const Navbar = () => {
                 },
             });
 
+            console.log("reee", resp);
             setdata(resp.data.data);
+
         } catch (error) {
-            console.error("Error fetching cart data:", error);
+            console.error("Error fetching user data:", error);
+            if (error.response && error.response.status === 403) {
+                localStorage.removeItem("token");
+
+                navigate('/login');
+            }
         }
     };
     useEffect(() => {
