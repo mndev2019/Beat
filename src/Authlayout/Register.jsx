@@ -1,10 +1,11 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../Api/Baseurl';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    let localphone = localStorage.getItem("phone")
     const [type, settype] = useState("");
     const [name, setname] = useState("");
     const [phone, setphone] = useState("");
@@ -12,6 +13,10 @@ const Register = () => {
     const [stage_name, setstage_name] = useState("");
     const [biography, setbiography] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        setphone(localphone)
+    }, [localphone])
     const handlesubmit = async (e) => {
         e.preventDefault();
         let requestdata = {
@@ -110,6 +115,7 @@ const Register = () => {
                                                 <input type="text"
                                                     className="w-full rounded-full p-3 bg-[#2D1A38] text-white  outline-none"
                                                     required
+                                                    readOnly
                                                     value={phone}
                                                     onChange={(e) => setphone(e.target.value)}
                                                     placeholder="Mobile no" />

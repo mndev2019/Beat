@@ -1,6 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const TermsCondition = () => {
+    const { app } = useParams()
+    console.log(app)
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms'>

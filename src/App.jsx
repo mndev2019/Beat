@@ -40,7 +40,7 @@ function App() {
         <Route element={<Authlayout />}>
           <Route path='/login' element={<Login />} />
           <Route path='/otp' element={<Otp />} />
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/register' element={<Register />} />
 
         </Route>
 

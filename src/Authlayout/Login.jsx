@@ -38,7 +38,7 @@ const Login = () => {
         try {
             const response = await axios.post(`${BASE_URL}login`, requestData);
             if (response.data.error === 0) {
-               
+
                 setUserStatus(response.data.status);
                 toast.success(response.message)
                 setIsLogin(false);
@@ -71,20 +71,16 @@ const Login = () => {
                 toast.success(data.message);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("type", data.type);
-                // localStorage.setItem("userID", data._id);
+                localStorage.setItem("phone", phone)
 
-                // if (data.type === "Buyer") {
-                //     navigate('/cart');
-                // } else {
-                //     navigate('/addbeat');
-                // }
                 if (userStatus == "New") {
                     navigate("/register");
+
                 } else if (userStatus == "Old") {
                     if (data.type == "Buyer") {
                         navigate("/cart");
                     } else {
-                          navigate("/profile", { state: { isProfileView: true } })
+                        navigate("/profile", { state: { isProfileView: true } })
                     }
                 } else {
                     toast.error("Unknown user status.");
@@ -148,6 +144,10 @@ const Login = () => {
                                     <input
                                         type="text"
                                         value={phone}
+                                        min={10}
+                                        max={10}
+                                        minLength={10}
+                                        maxLength={10}
                                         onChange={(e) => setPhone(e.target.value)}
                                         placeholder="Enter mobile number"
                                         required

@@ -35,7 +35,7 @@ const Cart = ({ isProfileView = false }) => {
         try {
             const token = localStorage.getItem("token");
 
-            const resp = await axios.get(`${BASE_URL}beat?seller=${data?._id}&page=1&rows=10`, {
+            const resp = await axios.get(`${BASE_URL}beat?seller=${data?._id}&page=1&rows=1000`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -56,9 +56,12 @@ const Cart = ({ isProfileView = false }) => {
             handlegetbeat();
         }
     }, [data]);
+
     const totalSold = beatdata.filter(beat => beat.is_sold === true).length;
-    const availablesold = beatdata.filter(beat => beat.is_sold === false).length;
- 
+    const availablesold = beatdata.filter(beat => beat.is_sold === false && beat.is_verified != "Rejected").length;
+    const Rejectedbeat = beatdata.filter(beat => beat.is_verified == "Rejected").length;
+
+
 
 
     return (
@@ -158,7 +161,7 @@ const Cart = ({ isProfileView = false }) => {
 
                     </div>
                     {isProfileView && type === "Seller" && (
-                        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 md:my-10 my-5">
+                        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 md:my-10 my-5">
                             <div className="col-span-1 mt-5">
                                 <div
                                     className="p-5 rounded-2xl border border-[#AF96BC] shadow-lg transition-transform transform hover:scale-105"
@@ -172,7 +175,7 @@ const Cart = ({ isProfileView = false }) => {
                                 </div>
                             </div>
 
-                            {/* <div className="col-span-1 mt-5">
+                            <div className="col-span-1 mt-5">
                                 <div
                                     className="p-5 rounded-2xl border border-[#AF96BC] shadow-lg transition-transform transform hover:scale-105"
                                     style={{
@@ -180,10 +183,10 @@ const Cart = ({ isProfileView = false }) => {
                                         boxShadow: '0 0 15px rgba(219, 40, 169, 0.4)',
                                     }}
                                 >
-                                    <h2 className="text-[#db28a9] font-semibold text-lg mb-1">Total Uploads</h2>
-                                    <p className="text-white text-3xl font-bold">5</p>
+                                    <h2 className="text-[#db28a9] font-semibold text-lg mb-1">Rejected Beats</h2>
+                                    <p className="text-white text-3xl font-bold">{Rejectedbeat}</p>
                                 </div>
-                            </div> */}
+                            </div>
 
                             <div className="col-span-1 mt-5">
                                 <div
