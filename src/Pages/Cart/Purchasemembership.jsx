@@ -46,15 +46,15 @@ const Purchasemembership = () => {
                 }
             );
             console.log(resp);
-              if (resp.data.url) {
-                    // Success case - redirect to payment gateway or show success message
+            if (resp.data.url) {
+                // Success case - redirect to payment gateway or show success message
 
-                    // if there is a URL to navigate to
-                    window.open(resp.data.url, '_blank');
-                } else {
-                    // Failure case - show error message
-                    console.log('Payment initiation failed: ' + resp.message);
-                }
+                // if there is a URL to navigate to
+                window.open(resp.data.url, '_blank');
+            } else {
+                // Failure case - show error message
+                console.log('Payment initiation failed: ' + resp.message);
+            }
         } catch (error) {
             console.error("Error submitting form:", error);
         }

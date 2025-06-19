@@ -16,6 +16,7 @@ import Cart from './Pages/Cart/Index'
 import MembershipHiostry from './Pages/Cart/MembershipHiostry'
 import Purchasemembership from './Pages/Cart/Purchasemembership'
 import About from './Pages/About'
+import Register from './Authlayout/Register'
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route element={<Authlayout />}>
           <Route path='/login' element={<Login />} />
           <Route path='/otp' element={<Otp />} />
+          <Route path='/register' element={<Register/>}/>
 
         </Route>
 

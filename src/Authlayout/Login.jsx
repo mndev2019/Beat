@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [userStatus, setUserStatus] = useState("");
     const [isLogin, setIsLogin] = useState(true);
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
@@ -37,7 +38,8 @@ const Login = () => {
         try {
             const response = await axios.post(`${BASE_URL}login`, requestData);
             if (response.data.error === 0) {
-                // toast.success(response.data.otp)
+               
+                setUserStatus(response.data.status);
                 toast.success(response.message)
                 setIsLogin(false);
             }
@@ -69,11 +71,23 @@ const Login = () => {
                 toast.success(data.message);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("type", data.type);
+                // localStorage.setItem("userID", data._id);
 
-                if (data.type === "Buyer") {
-                    navigate('/cart');
+                // if (data.type === "Buyer") {
+                //     navigate('/cart');
+                // } else {
+                //     navigate('/addbeat');
+                // }
+                if (userStatus == "New") {
+                    navigate("/register");
+                } else if (userStatus == "Old") {
+                    if (data.type == "Buyer") {
+                        navigate("/cart");
+                    } else {
+                          navigate("/profile", { state: { isProfileView: true } })
+                    }
                 } else {
-                    navigate('/addbeat');
+                    toast.error("Unknown user status.");
                 }
             } else {
                 toast.error(data?.message || "Invalid OTP");
@@ -114,27 +128,15 @@ const Login = () => {
 
 
     return (
-        <section className='loginbg min-h-screen'>
-            <img src={login} alt='Login Illustration' className='mx-auto lg:h-[400px] md:h-[300px] object-cover' />
+        <section className='loginbg '>
+            <img src={login} alt='Login Illustration' className='mx-auto lg:h-[300px] md:h-[300px] object-cover' />
 
             {isLogin ? (
                 <form onSubmit={handleSubmit}>
                     <div className="flex items-center justify-center login pt-10 md:px-0 px-5">
                         <div className="w-full max-w-md text-center">
                             <h2 className="text-white font-[400] md:text-[30px] text-[20px] mb-6">Mobile Verification</h2>
-                            {/* <div className="text-left">
-                                <label className="text-white font-[500] md:text-[18px] text-[15px] mb-2 block">Mobile Number</label>
-                                <div className="relative">
-                                    <input
-                                        type="text"
-                                        value={phone}
-                                        onChange={(e) => setPhone(e.target.value)}
-                                        placeholder="+91"
-                                        required
-                                        className="w-full px-4 py-3 bg-[#2D1A38] text-white rounded-full focus:outline-none"
-                                    />
-                                </div>
-                            </div> */}
+
                             <div className="text-left">
                                 <label className="text-white font-[500] md:text-[18px] text-[15px] mb-2 block">
                                     Mobile Number

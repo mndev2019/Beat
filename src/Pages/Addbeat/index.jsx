@@ -4,6 +4,7 @@ import { FiUpload } from 'react-icons/fi'
 import { BASE_URL } from '../../Api/Baseurl';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 
 const Addbeat = () => {
     const navigate = useNavigate();
@@ -11,7 +12,8 @@ const Addbeat = () => {
     const [price, setprice] = useState("");
     const [genre, setgenre] = useState("");
     const [daw_link, setdaw_link] = useState("");
-    const [dav_file, setdav_file] = useState("");
+    // const [dav_file, setdav_file] = useState("");
+    const [dav_file, setdav_file] = useState([{ file: null }]);
     const [image, setimage] = useState("");
     const [beat_file, setbeat_file] = useState("");
 
@@ -35,14 +37,36 @@ const Addbeat = () => {
     useEffect(() => {
         handleget();
     }, [])
-
-    const handledavfile = (e) => {
-        const selectedFile = e.target.files?.[0];
-        if (selectedFile) {
-            setdav_file(selectedFile);
-            console.log('Selected file:', selectedFile.name);
-        }
+    const handleAddDavFile = () => {
+        setdav_file([...dav_file, { file: null }]);
     };
+
+    const handleRemoveDavFile = (index) => {
+        const updated = [...dav_file];
+        updated.splice(index, 1);
+        setdav_file(updated);
+    };
+
+    const handleDavFileChange = (index, file) => {
+        const updated = [...dav_file];
+        updated[index].file = file;
+        setdav_file(updated);
+
+
+
+        updated.forEach((item, i) => {
+            console.log(`File at index ${i}:`, item.file);
+        });
+    };
+
+
+    // const handledavfile = (e) => {
+    //     const selectedFile = e.target.files?.[0];
+    //     if (selectedFile) {
+    //         setdav_file(selectedFile);
+    //         console.log('Selected file:', selectedFile.name);
+    //     }
+    // };
     const handleimage = (e) => {
         const selectedfile = e.target.files[0];
         setimage(selectedfile)
@@ -55,28 +79,6 @@ const Addbeat = () => {
         }
     };
 
-    // const beatFileRef = useRef(null);
-    // const imageRef = useRef(null);
-    // const davFileRef = useRef(null);
-
-
-    // const handleBeatFileClick = () => beatFileRef.current.click();
-    // const handleImageClick = () => imageRef.current.click();
-    // const handleDavFileClick = () => davFileRef.current.click();
-    // const handleBeatFileClick = () => {
-    //     beatFileRef.current.value = null; // allow re-selecting same file
-    //     beatFileRef.current.click();
-    // };
-
-    // const handleImageClick = () => {
-    //     imageRef.current.value = null;
-    //     imageRef.current.click();
-    // };
-
-    // const handleDavFileClick = () => {
-    //     davFileRef.current.value = null;
-    //     davFileRef.current.click();
-    // };
 
     const handlesubmit = async (e) => {
         e.preventDefault();
@@ -85,13 +87,22 @@ const Addbeat = () => {
         formData.append("price", price);
         formData.append("genre", genre);
         formData.append("daw_link", daw_link);
-        formData.append("dav_file", dav_file);
+        // formData.append("dav_file", dav_file);
+        // dav_file.forEach((file) => {
+        //     formData.append("dav_file", file);
+        // });
+        dav_file.forEach((item, i) => {
+            formData.append(`dav_file_${i + 1}`, item.file);
+        });
+
         formData.append("image", image);
         formData.append("beat_file", beat_file);
         formData.append("trending", 0);
 
 
         const token = localStorage.getItem("token");
+
+
 
         try {
             const resp = await axios.post(`${BASE_URL}beat`, formData, {
@@ -108,7 +119,7 @@ const Addbeat = () => {
                 setprice("");
                 setgenre("");
                 setdaw_link("");
-                setdav_file("");
+                // setdav_file("");
                 setimage("");
                 setbeat_file("");
                 navigate("/profile", { state: { isProfileView: true } })
@@ -194,33 +205,7 @@ const Addbeat = () => {
                                                     placeholder="enter file link" />
                                             </div>
                                         </div>
-                                        {/* <div className="col-span-1">
-                                            <div>
-                                                <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">
-                                                    Beat Audio File
-                                                </label>
 
-                                                <div
-                                                    className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center cursor-pointer"
-
-                                                    onClick={handleBeatFileClick}
-
-                                                >
-                                                    <FiUpload className='text-[#861577]' />
-                                                    <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Audio Link</span>
-                                                    <span className='mt-2 text-[#B8B8B8] text-[15px] font-[400]'>(mp3)</span>
-                                                    <input
-                                                        type="file"
-                                                        
-                                                        ref={beatFileRef}
-                                                        
-                                                        className="ml-[129px]"
-                                                        required
-                                                        onChange={handlebeatfile}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div> */}
                                         <div className="w-full">
                                             <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">
                                                 Beat Audio File
@@ -248,53 +233,7 @@ const Addbeat = () => {
                                         </div>
 
 
-                                        {/* <div className="col-span-1">
-                                            <div>
-                                                <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Thumbnail</label>
-                                                <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
 
-                                                    onClick={handleImageClick}
-
-                                                >
-                                                    <FiUpload className='text-[#861577]' />
-
-                                                    <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Thumbnail</span>
-                                                    <input
-                                                        type="file"
-                                                      
-                                                        ref={imageRef}
-
-                                                        className="ml-[129px]"
-                                                        required
-                                                        onChange={handleimage}
-
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-span-1">
-                                            <div>
-                                                <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Steams</label>
-                                                <div className="w-full rounded-lg p-8 bg-[#2D1A38] text-white outline-none border-dashed border-2 border-[#861577] flex flex-col items-center justify-center"
-
-                                                    onClick={handleDavFileClick}
-
-                                                >
-                                                    <FiUpload className='text-[#861577]' />
-
-                                                    <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Steams</span>
-                                                    <input
-                                                        type="file"
-                                                       
-                                                        ref={davFileRef}
-                                                        style={{ display: "none" }}
-                                                        className="ml-[129px]"
-                                                        required
-                                                        onChange={handledavfile}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div> */}
                                         <div className="col-span-1">
                                             <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Thumbnail</label>
                                             <label htmlFor='uploadfile' className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
@@ -316,8 +255,17 @@ const Addbeat = () => {
                                                 />
                                             </label>
                                         </div>
-                                        <div className="col-span-1">
-                                            <label className="text-white lg:text-[18px] text-[15px] font-[500] block mb-1">Beat Stems</label>
+                                        {/* <div className="col-span-1">
+                                            <div className='flex justify-between mb-3 items-center'>
+                                                <label className="text-white lg:text-[18px] text-[15px] font-[500] block ">Beat Stems</label>
+                                                <div className='cursor-pointer h-[40px] w-[40px] rounded-full flex text-white justify-center items-center' style={{
+                                                    background:
+                                                        'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
+                                                }}>
+                                                    <FaPlus className='text-[20px] ' />
+                                                </div>
+                                            </div>
+
                                             <label htmlFor='uploadsteam' className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
                                                 <FiUpload className="text-[#861577]" />
                                                 <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Stems</span>
@@ -325,7 +273,7 @@ const Addbeat = () => {
                                                 <input
                                                     type="file"
                                                     id="uploadsteam"
-                                                    // accept="audio/*"
+                                                  
                                                     onChange={handledavfile}
                                                     className="mt-4 block w-full text-sm text-white
                                                        file:mr-4 file:py-2 file:px-4
@@ -336,7 +284,49 @@ const Addbeat = () => {
                                                     required
                                                 />
                                             </label>
+                                        </div> */}
+                                        <div className="col-span-1">
+                                            <div className='flex justify-between mb-3 items-center'>
+                                                <label className="text-white lg:text-[18px] text-[15px] font-[500] block">Beat Stems</label>
+                                                <div
+                                                    onClick={handleAddDavFile}
+                                                    className='cursor-pointer h-[40px] w-[40px] rounded-full flex text-white justify-center items-center'
+                                                    style={{
+                                                        background:
+                                                            'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
+                                                    }}>
+                                                    <FaPlus className='text-[20px]' />
+                                                </div>
+                                            </div>
+
+                                            {dav_file.map((item, index) => (
+                                                <div key={index} className="relative mb-4">
+                                                    <label htmlFor={`uploadstem-${index}`} className="w-full rounded-lg p-8 bg-[#2D1A38] text-white border-dashed border-2 border-[#861577] flex flex-col items-center justify-center">
+                                                        <FiUpload className="text-[#861577]" />
+                                                        <span className="mt-2 text-[#B8B8B8] text-[15px] font-[400]">Upload Beat Stem {index + 1}</span>
+                                                        <input
+                                                            type="file"
+                                                            id={`uploadstem-${index}`}
+                                                            onChange={(e) => handleDavFileChange(index, e.target.files?.[0])}
+                                                            className="mt-4 block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#861577] file:text-white hover:file:bg-[#a42093]"
+                                                            required
+                                                        />
+                                                    </label>
+
+                                                    {dav_file.length > 1 && index > 0 && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => handleRemoveDavFile(index)}
+                                                            className="absolute top-2 right-2 text-red-500 bg-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold"
+                                                        >
+                                                            &minus;
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            ))}
                                         </div>
+
+
 
 
                                         <div className="col-span-1">
@@ -357,4 +347,5 @@ const Addbeat = () => {
 }
 
 export default Addbeat
+
 
