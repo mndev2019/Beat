@@ -20,6 +20,8 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [data, setdata] = useState([]);
 
+
+
     useEffect(() => {
         if (token) {
             handleget();
@@ -37,15 +39,11 @@ const Navbar = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
-            console.log("reee", resp);
             setdata(resp.data.data);
-
         } catch (error) {
             console.error("Error fetching user data:", error);
             if (error.response && error.response.status === 403) {
                 localStorage.removeItem("token");
-
                 navigate('/login');
             }
         }

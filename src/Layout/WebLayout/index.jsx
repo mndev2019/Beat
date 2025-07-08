@@ -12,13 +12,15 @@ const WebLayout = () => {
 
     const isMobileApp = app == 'mobileapp';
 
-    // const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     // useEffect(() => {
     //     if (!token) {
     //         navigate('/login');
     //     }
     // }, [token, navigate]);
+
+
 
 
     return (
