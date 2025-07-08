@@ -19,6 +19,15 @@ const Navbar = () => {
     const token = localStorage.getItem("token")
     const [isOpen, setIsOpen] = useState(false);
     const [data, setdata] = useState([]);
+
+    useEffect(() => {
+        if (token) {
+            handleget();
+        } else {
+            console.log("❌ Token not found in localStorage.");
+        }
+    }, [token])
+
     const handleget = async () => {
         try {
             const token = localStorage.getItem("token");
@@ -42,7 +51,7 @@ const Navbar = () => {
         }
     };
     useEffect(() => {
-        handleget();
+
     }, [])
 
     const toggleMenu = () => {
