@@ -3,6 +3,7 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: #1E032A;
+  
 }
 
 /*navbar*/
@@ -10,7 +11,7 @@ body {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(153, 153, 153, 0.13) 100%);
 }
 
-/* banner */
+/* banner video */
 .banner .myVideo {
     height: 100vh;
 }
@@ -29,6 +30,47 @@ body {
 
 .banner .myVideo video {
     object-fit: fill;
+}
+
+/* bannerbg image */
+.bannerbg {
+    background-image: url('./assets/Image/bannerbg.png');
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.bannerbg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.bannerbg h2 {
+    /* font-size: clamp(2.2rem, 6vw, 4rem); */
+    text-shadow: 0 0 14px #DB28A9;
+}
+
+.btn {
+    background: linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%);
+    color: #fff;
+    box-shadow: 0 4px 20px 6px rgba(219, 40, 169, 0.2);
+    /* softer default shadow */
+    transition: all 0.4s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+    /* subtle zoom */
+    box-shadow: 0 6px 26px 8px rgba(219, 40, 169, 0.3);
+    /* soft, smooth glow */
+}
+
+/* why project beat */
+.whyprojectbeat .projectbeatcard:hover {
+    box-shadow: 0 0 22px rgba(219, 40, 169, 0.35);
 }
 
 /* discover */
@@ -143,3 +185,7 @@ body {
 }
 
 /* connect */
+
+.connect .connectbox {
+    box-shadow: 0 0 22px rgba(219, 40, 169, 0.35);
+}

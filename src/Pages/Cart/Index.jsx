@@ -44,6 +44,7 @@ const Cart = ({ isProfileView = false }) => {
             setbeatdata(resp.data.data);
         } catch (error) {
             console.error("Error fetching cart data:", error);
+          
         }
     };
     useEffect(() => {
@@ -124,12 +125,9 @@ const Cart = ({ isProfileView = false }) => {
                                 type === "Seller" && (
                                     <>
                                         <button
-                                            className="text-white poppins text-[15px] font-[500] py-2 px-8 rounded-full"
+                                            className="text-white poppins text-[15px] font-[500] py-2 px-8 rounded-full btn cursor-pointer"
                                             onClick={() => navigate('/addbeat')}
-                                            style={{
-                                                background:
-                                                    'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
-                                            }}
+
                                         >
                                             Add Beat
                                         </button>
@@ -140,18 +138,15 @@ const Cart = ({ isProfileView = false }) => {
                             ) : (
                                 <>
                                     <button
-                                        className="text-white poppins text-[15px] font-[500] border border-[#861577] py-2 px-5 rounded-full"
+                                        className="text-white poppins text-[15px] font-[500] border border-[#861577] py-2 px-5 rounded-full hover:scale-105 transition-transform duration-300 hover:shadow cursor-pointer"
                                         onClick={() => navigate('/membership-hiostry')}
                                     >
                                         Membership History
                                     </button>
                                     <button
-                                        className="text-white poppins text-[15px] font-[500] py-2 px-5 rounded-full"
+                                        className="text-white poppins text-[15px] font-[500] py-2 px-5 rounded-full btn cursor-pointer"
                                         onClick={() => navigate('/purchase-membership')}
-                                        style={{
-                                            background:
-                                                'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
-                                        }}
+
                                     >
                                         Purchase Membership
                                     </button>

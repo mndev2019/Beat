@@ -155,7 +155,7 @@ const Register = () => {
                                             </div>
                                         </div>
                                         <div className="col-span-1">
-                                            <button className='lg:text-[18px] text-[15px] font-[500] text-white rounded-full w-full submit lg:py-3 py-2'>Register</button>
+                                            <button className='btn lg:text-[18px] text-[15px] font-[500] text-white rounded-full w-full  lg:py-3 py-2 transition-all duration-300 ease-in-out transform hover:scale-100 cursor-pointer'>Register</button>
                                         </div>
                                     </div>
                                 </div>

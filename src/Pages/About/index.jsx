@@ -4,7 +4,7 @@ import about2 from '../../assets/Image/about2.png'
 import about3 from '../../assets/Image/about3.png'
 
 const About = () => {
-    
+
     return (
         <>
             <section className='lg:px-20 px-10 md:py-10 py-5 terms about'>
@@ -19,14 +19,14 @@ const About = () => {
                     <div className="grid grid-cols-1">
                         <div className="col-span-1">
                             <div className="flex flex-wrap justify-center gap-4 md:pt-5 pt-0 pb-8">
-                                
-                                    <button
-                                       
-                                        className="text-white px-6 py-2 rounded-full border border-[#F38BDC] poppins bg-[#FFFFFF17] text-center text-sm sm:text-base md:text-[15px] text-[12px]"
-                                    >
-                                        Easiest , Best Possible Way To Sell and Buy Music Beats
-                                    </button>
-                               
+
+                                <button
+
+                                    className="text-white px-6 py-2 rounded-full border border-[#F38BDC] poppins bg-[#FFFFFF17] text-center text-sm sm:text-base md:text-[15px] text-[12px]"
+                                >
+                                    Easiest , Best Possible Way To Sell and Buy Music Beats
+                                </button>
+
                             </div>
                         </div>
                     </div>

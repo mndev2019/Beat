@@ -229,7 +229,7 @@ const Addbeat = () => {
                                                         required
                                                     />
                                                 </label>
-                                            </div>
+                                            </div> 
                                         </div>
 
 
@@ -330,7 +330,7 @@ const Addbeat = () => {
 
 
                                         <div className="col-span-1">
-                                            <button className='lg:text-[18px] text-[15px] font-[500] text-white rounded-full w-full submit lg:py-3 py-2'>Submit for Approval</button>
+                                            <button className='lg:text-[18px] text-[15px] font-[500] text-white rounded-full w-full  lg:py-3 py-2 btn cursor-pointer'>Submit for Approval</button>
                                         </div>
                                     </div>
                                 </div>

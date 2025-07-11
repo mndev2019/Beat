@@ -9,20 +9,22 @@ import BuyBeats from './BuyBeats'
 import SellBeat from './SellBeat'
 import Connectpeople from './Connectpeople'
 import Success from './Success'
+import Whyprojectbeat from '../Whyprojectbeat'
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <About/>
+      <Whyprojectbeat />
+      <About />
       <Discover />
-     
+
       <Explorebeats />
-      <Success/>
+      <Success />
       <Browsebeats />
-      <SellBeat/>
-      <BuyBeats/>
-      <Connectpeople/>
+      <SellBeat />
+      <BuyBeats />
+      <Connectpeople />
     </>
   )
 }

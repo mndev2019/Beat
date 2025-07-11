@@ -128,10 +128,8 @@ const Contactpage = () => {
                     </div>
                   </div>
                   <button type='submit'
-                    style={{
-                      background: "linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)",
-                    }}
-                    className="text-white rounded-full md:text-[16px] text-[14px] font-medium md:py-3 py-2 w-full poppins"
+                   
+                    className="text-white rounded-full md:text-[16px] text-[14px] font-medium md:py-3 py-2 px-8 poppins btn cursor-pointer"
                   >
                     Send Message
                   </button>

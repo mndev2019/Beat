@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import login from '../assets/Image/Group.png';
+// import login from '../assets/Image/Group.png';
 import { BASE_URL } from '../Api/Baseurl';
 import axios from 'axios';
 import OTPInput from 'react-otp-input';
@@ -124,13 +124,14 @@ const Login = () => {
 
 
     return (
-        <section className='loginbg '>
-            <img src={login} alt='Login Illustration' className='mx-auto lg:h-[300px] md:h-[300px] object-cover' />
+        //  <section className='loginbg '>
+        <section className=' '>
+            {/* <img src={login} alt='Login Illustration' className='mx-auto lg:h-[300px] md:h-[300px] object-cover' /> */}
 
             {isLogin ? (
-                <form onSubmit={handleSubmit}>
-                    <div className="flex items-center justify-center login pt-10 md:px-0 px-5">
-                        <div className="w-full max-w-md text-center">
+                <form onSubmit={handleSubmit} className=''>
+                    <div className="flex items-center justify-center login pt-30 md:px-0 px-5 ">
+                        <div className="w-full max-w-md text-center bg-[#ffffff14] rounded-[20px] sm:p-8 p-4" style={{ boxShadow: '0 0 22px rgba(219, 40, 169, 0.35)' }}>
                             <h2 className="text-white font-[400] md:text-[30px] text-[20px] mb-6">Mobile Verification</h2>
 
                             <div className="text-left">
@@ -138,7 +139,7 @@ const Login = () => {
                                     Mobile Number
                                 </label>
                                 <div className="relative flex items-center gap-2">
-                                    <div className="bg-[#2D1A38] text-white px-4 py-3 rounded-full">
+                                    <div className="bg-[#382042] text-white px-4 py-3 rounded-full">
                                         +91
                                     </div>
                                     <input
@@ -151,12 +152,15 @@ const Login = () => {
                                         onChange={(e) => setPhone(e.target.value)}
                                         placeholder="Enter mobile number"
                                         required
-                                        className="w-full px-4 py-3 bg-[#2D1A38] text-white rounded-full focus:outline-none"
+                                        className="w-full px-4 py-3 bg-[#382042] text-white rounded-full focus:outline-none"
                                     />
                                 </div>
                             </div>
 
-                            <button type='submit' className="w-full mt-6 py-3 text-white font-medium rounded-full submit">
+                            <button
+                                type="submit"
+                                className="cursor-pointer w-full mt-6 py-3 text-white font-medium rounded-full btn transition-all duration-300 ease-in-out transform hover:scale-100"
+                            >
                                 Get OTP
                             </button>
                         </div>
@@ -164,12 +168,12 @@ const Login = () => {
                 </form>
             ) : (
                 <form onSubmit={handleotp}>
-                    <div className="flex items-center justify-center login pt-10 md:px-0 px-5">
-                        <div className="w-full max-w-md text-center">
+                    <div className="flex items-center justify-center login pt-30 md:px-0 px-5">
+                        <div className="w-full max-w-md text-center bg-[#ffffff14] rounded-[20px] sm:p-8 p-4" style={{ boxShadow: '0 0 22px rgba(219, 40, 169, 0.35)' }}>
                             <h2 className="text-white font-[400] md:text-[30px] text-[20px] mb-6">Verify OTP</h2>
                             <p className='md:text-[15px] text-[12px] font-[500] text-white'>
                                 An OTP has been sent to +91-{phone}, the Code will expire in
-                                {/* <span className='block'>Code will expire in <span className='text-[#DF0BC3]'> 00:21</span> seconds.</span> */}
+
                                 <span className='text-[#DF0BC3]'> 00:{timer.toString().padStart(2, '0')} <span className='text-white'>Seconds</span></span>
                             </p>
 
@@ -181,21 +185,21 @@ const Login = () => {
                                     renderInput={(props) => (
                                         <input
                                             {...props}
-                                            className="w-[30px] h-12 bg-[#2D1A38] shadow-md rounded-lg text-center text-white text-lg outline-none"
+                                            className="w-[30px] h-12 bg-[#382042] shadow-md rounded-lg text-center text-white text-lg outline-none"
                                         />
                                     )}
                                 />
                             </div>
 
-                            <div className='flex gap-3 mt-3'>
+                            <div className='flex gap-5 mt-3'>
                                 <button
                                     onClick={handleResendOtp}
                                     disabled={!otpExpired}
-                                    className={`w-full mt-6 py-2 text-white font-medium rounded-full submit ${!otpExpired ? "opacity-50 cursor-not-allowed" : ""}`}
+                                    className={`w-full mt-6 py-2 text-white font-medium rounded-full btn ${!otpExpired ? "opacity-50 cursor-not-allowed" : "transition-all duration-300 ease-in-out transform hover:scale-105 cursor-pointer"}`}
                                 >
                                     Resend OTP
                                 </button>
-                                <button className="w-full mt-6 py-2 text-white font-medium rounded-full submit" disabled={otpExpired}>
+                                <button className="w-full mt-6 py-2 text-white font-medium rounded-full btn transition-all duration-300 ease-in-out transform hover:scale-105 cursor-pointer" disabled={otpExpired}>
                                     Confirm
                                 </button>
                             </div>
@@ -204,7 +208,11 @@ const Login = () => {
                 </form>
             )}
         </section>
+
+
+
     );
 };
 
 export default Login;
+

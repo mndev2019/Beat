@@ -10,10 +10,20 @@ import { CiMenuFries } from 'react-icons/ci';
 import { IoClose } from 'react-icons/io5';
 import axios from 'axios';
 import { BASE_URL } from '../Api/Baseurl';
-import { toast } from 'react-toastify';
+
 
 
 const Navbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     const navigate = useNavigate();
     const type = localStorage.getItem("type")
     const token = localStorage.getItem("token")
@@ -42,10 +52,10 @@ const Navbar = () => {
             setdata(resp.data.data);
         } catch (error) {
             console.error("Error fetching user data:", error);
-            if (error.response && error.response.status === 403) {
-                localStorage.removeItem("token");
-                navigate('/login');
-            }
+            // if (error.response && error.response.status === 403) {
+            //     localStorage.removeItem("token");
+            //     navigate('/login');
+            // }
         }
     };
     useEffect(() => {
@@ -68,7 +78,10 @@ const Navbar = () => {
 
     // Function to check if we are on the home page
     const getNavbarClass = () => {
-        return location.pathname === '/' ? 'md:absolute' : '';
+        if (location.pathname === '/') {
+            return isScrolled ? 'fixed top-0 shadow-md bg-[#1E032A]' : 'absolute';
+        }
+        return isScrolled ? 'fixed top-0 shadow-md bg-[#1E032A]' : "";
     };
     const handlelogout = () => {
         localStorage.clear();
@@ -81,7 +94,7 @@ const Navbar = () => {
             <li>
                 <NavLink
                     to="/"
-                    className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
+                    className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
                     onClick={() => setIsOpen(!open)}
                 >
                     Home
@@ -90,10 +103,19 @@ const Navbar = () => {
             <li>
                 <NavLink
                     to="/contact"
-                    className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
+                    className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
                     onClick={() => setIsOpen(!open)}
                 >
                     Contact
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/battle-zone"
+                    className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
+                    onClick={() => setIsOpen(!open)}
+                >
+                    BattleZone
                 </NavLink>
             </li>
             {
@@ -141,24 +163,24 @@ const Navbar = () => {
 
                         <li>
                             <NavLink to="">
-                                <button className='rounded-[16px] py-3 px-5 signbtn' onClick={handlelogout}>Log out</button>
+                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer' onClick={handlelogout}>Log out</button>
                             </NavLink>
                         </li>
 
                     </>
                 ) : (
                     <>
-                        <li>
+                        {/* <li>
                             <NavLink
                                 to="/login"
                                 className={({ isActive }) => isActive ? "text-secondary" : "hover:text-secondary"}
                             >
                                 Log In
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink to="/login">
-                                <button className='rounded-[16px] py-3 px-5 signbtn'>Sign up</button>
+                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer'>Log In / Sign up</button>
                             </NavLink>
                         </li>
                     </>
@@ -172,7 +194,7 @@ const Navbar = () => {
 
     return (
         <>
-            <section className={`md:py-5 py-1 md:px-10 px-3 z-10   ${getNavbarClass()}   w-full`}>
+            <section className={`md:py-2 py-1 md:px-10 px-3 z-20    ${getNavbarClass()}   w-full`}>
 
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5 ">

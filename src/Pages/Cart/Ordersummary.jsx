@@ -151,12 +151,9 @@ const Ordersummary = () => {
           </div>
           {/* Send Message Button */}
           <div className="mt-10">
-            <button type='submit'
-              style={{
-                background:
-                  'linear-gradient(274.15deg, #861577 37.11%, #36024C 111.1%, #34014A 121.44%)',
-              }}
-              className="text-white rounded-full text-[16px] font-medium py-3 w-full poppins"
+            <button type='submit '
+             
+              className="text-white rounded-full text-[16px] font-medium py-3 w-full poppins btn cursor-pointer"
               onClick={() => handleProceedToPayment(summary)}
             >
               Proceed Payment

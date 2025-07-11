@@ -33,14 +33,14 @@ const Otp = () => {
                             />
                         </div>
 
-                     <div className='flex gap-3 mt-3'>
-                     <button className="w-full mt-6 py-2 text-white font-medium rounded-full submit">
-                            Resend OTP
-                        </button>
-                        <button className="w-full mt-6 py-2 text-white font-medium rounded-full submit" onClick={()=> navigate('/')}>
-                            Confirm
-                        </button>
-                     </div>
+                        <div className='flex gap-3 mt-3'>
+                            <button className="w-full mt-6 py-2 text-white font-medium rounded-full submit">
+                                Resend OTP
+                            </button>
+                            <button className="w-full mt-6 py-2 text-white font-medium rounded-full submit" onClick={() => navigate('/')}>
+                                Confirm
+                            </button>
+                        </div>
 
                     </div>
                 </div>

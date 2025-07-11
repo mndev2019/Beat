@@ -17,6 +17,9 @@ import MembershipHiostry from './Pages/Cart/MembershipHiostry'
 import Purchasemembership from './Pages/Cart/Purchasemembership'
 import About from './Pages/About'
 import Register from './Authlayout/Register'
+import Battlezone from './Pages/Battlezone'
+import Battleregister from './Pages/Battlezone/Battleregister'
+
 
 
 
@@ -28,6 +31,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/addbeat' element={<Addbeat />} />
           <Route path='/contact' element={<Contactpage />} />
+          <Route path='/battle-zone' element={<Battlezone />} />
+          <Route path='/battleregister' element={<Battleregister />} />
+
           <Route path='/about' element={<About />} />
           <Route path='/terms-condition' element={<TermsCondition />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
