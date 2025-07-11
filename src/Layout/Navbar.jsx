@@ -109,7 +109,7 @@ const Navbar = () => {
                     Contact
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink
                     to="/battle-zone"
                     className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
@@ -117,7 +117,7 @@ const Navbar = () => {
                 >
                     BattleZone
                 </NavLink>
-            </li>
+            </li> */}
             {
                 token ? (
                     <>
