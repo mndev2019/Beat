@@ -109,7 +109,7 @@ const Navbar = () => {
                     Contact
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink
                     to="/battle-zone"
                     className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
@@ -117,7 +117,7 @@ const Navbar = () => {
                 >
                     BattleZone
                 </NavLink>
-            </li>
+            </li> */}
             {
                 token ? (
                     <>
@@ -162,8 +162,8 @@ const Navbar = () => {
                         )} */}
 
                         <li>
-                            <NavLink to="">
-                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer' onClick={handlelogout}>Log out</button>
+                            <NavLink to="" >
+                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105' onClick={handlelogout}>Log out</button>
                             </NavLink>
                         </li>
 
@@ -180,7 +180,7 @@ const Navbar = () => {
                         </li> */}
                         <li>
                             <NavLink to="/login">
-                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer'>Log In / Sign up</button>
+                                <button className='rounded-[16px] py-3 px-5 signbtn cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105'>Log In / Sign up</button>
                             </NavLink>
                         </li>
                     </>

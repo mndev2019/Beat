@@ -31,8 +31,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/addbeat' element={<Addbeat />} />
           <Route path='/contact' element={<Contactpage />} />
-          <Route path='/battle-zone' element={<Battlezone />} />
-          <Route path='/battleregister' element={<Battleregister />} />
+          {/* <Route path='/battle-zone' element={<Battlezone />} /> */}
+          {/* <Route path='/battleregister' element={<Battleregister />} /> */}
 
           <Route path='/about' element={<About />} />
           <Route path='/terms-condition' element={<TermsCondition />} />
