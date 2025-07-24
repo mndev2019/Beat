@@ -38,9 +38,9 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link to='/contact'>
-                                    Contact Us
+                                        Contact Us
                                     </Link>
-                                  
+
                                 </li>
                             </ul>
                         </div>
@@ -85,7 +85,7 @@ const Footer = () => {
                             <a href='https://www.facebook.com/people/Project-Beat-Records/61556641920870/?mibextid=WC7FNe' target='_blank'>
                                 <FaFacebook className='text-white text-lg' />
                             </a>
-                            <a href='https://www.instagram.com/accounts/login/?next=%2Fprojectbeatrecords%2F&source=omni_redirect' target='_blank'>
+                            <a href='https://www.instagram.com/accounts/login/?next=%2Fprojectbeatrecords%2F&source=omni_redirect' target='_blank' >
                                 <PiInstagramLogoFill className='text-white text-xl' />
                             </a>
 
