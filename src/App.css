@@ -204,3 +204,21 @@ body {
         transform: translate3d(-30%, 10%, 0);
     }
 } */
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+        /* instead of 0 — makes it fade gently */
+    }
+}
+
+.blink {
+    animation: blink 1.3s infinite;
+}

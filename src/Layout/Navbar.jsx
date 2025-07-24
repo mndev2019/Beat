@@ -111,13 +111,41 @@ const Navbar = () => {
             </li>
             {/* <li>
                 <NavLink
-                    to="/battle-zone"
-                    className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
+                    to="https://rapbattle.in/"
+                    target='_blank'
                     onClick={() => setIsOpen(!open)}
+                    className={({ isActive }) =>
+                        `relative inline-block px-6 py-2 font-semibold text-white rounded-md transition-all duration-300 ease-in-out transform 
+       ${isActive ? 'bg-gradient-to-r from-pink-500 to-yellow-500 scale-105 shadow-lg' : 'signbtn hover:bg-[#e6771c] hover:scale-105 shadow-md'}`
+                    }
                 >
-                    BattleZone
+                    <span className="relative z-10"> BattleZone</span>
+                    <span className="absolute inset-0 rounded-md bg-black opacity-10 blur-sm animate-pulse"></span>
                 </NavLink>
+            </li>
+            <li className="group relative">
+
+
+                <NavLink
+                    to="https://rapbattle.in/"
+                    target="_blank"
+                    onClick={() => setIsOpen(!open)}
+                    className="flex items-center gap-2 px-4 py-2 signbtn text-white font-semibold rounded-full transition-all duration-300 ease-in-out hover:bg-[#e6771c] shadow-md group-hover:px-6 group-hover:pr-8"
+                >
+                    <span className="text-md transition-transform duration-300 transform group-hover:scale-125">🔥</span>
+                    <span
+                        className="ml-1 whitespace-nowrap overflow-hidden max-w-0 group-hover:max-w-[200px] group-hover:ml-2 transition-all duration-300 ease-in-out"
+                    >
+                        Battle Zone
+                    </span>
+                </NavLink>
+
+
             </li> */}
+
+
+
+
             {
                 token ? (
                     <>
