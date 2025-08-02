@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/Image/logo.svg'
+import logo from '../assets/Image/logo.png'
 import apple from '../assets/Image/apple.png'
 import playstore from '../assets/Image/playstore.png'
 import { FaFacebook } from 'react-icons/fa'
@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 border-b border-gray-500 pb-10">
                         <div className="col-span-1">
                             <Link to='/'>
-                                <img src={logo} alt='image' />
+                                <img src={logo} alt='image' className='w-[80px]' />
                             </Link>
                         </div>
                         <div className="col-span-1">
@@ -67,11 +67,11 @@ const Footer = () => {
                                 Take Beats on the Go!
                             </h2>
                             <Link to="https://apps.apple.com/in/app/project-beat/id6535684400">
-                                <img src={apple} alt='image' className='md:h-[60px] h-[50px]' />
+                                <img src={apple} alt='image' className="md:h-[60px] h-[50px] transition-transform duration-200 hover:scale-110" />
                             </Link>
 
                             <Link to="https://play.google.com/store/apps/details?id=com.projectbeat.app">
-                                <img src={playstore} alt='image' className='md:h-[60px] h-[50px] mt-3' />
+                                <img src={playstore} alt='image' className="md:h-[60px] h-[50px] mt-3 transition-transform duration-200 hover:scale-110" />
                             </Link>
 
 

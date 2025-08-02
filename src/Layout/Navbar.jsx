@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/Image/logo.svg';
+import logo from '../assets/Image/logo.png';
 import cart from '../assets/Image/cart.svg'
 import profile from '../assets/Image/newprofile.jpg';
+import battlezoneimg from "../assets/Image/battllezone.png"
+import mouse from "../assets/Image/mouse.png"
+
 
 
 // import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
@@ -91,6 +94,17 @@ const Navbar = () => {
 
     const navlist = (
         <ul className="flex lg:flex-row flex-col list-none gap-8 font-[600] text-[16px] text-white items-center cursor-pointer">
+            <li className='relative'>
+                <NavLink
+                    to="https://rapbattle.in/"
+                    className={({ isActive }) => isActive ? "text-[#DB28A9]" : "hover:text-[#DB28A9]"}
+                    onClick={() => setIsOpen(!open)}
+                >
+                    <img src={battlezoneimg} alt="" />
+                    <img src={mouse} alt="" className='absolute right-[10px] bottom-[-8px]' />
+
+                </NavLink>
+            </li>
             <li>
                 <NavLink
                     to="/"
@@ -228,7 +242,7 @@ const Navbar = () => {
                     <div className="flex justify-between items-center bg-[#1E032A] md:rounded-[24px] rounded-md px-5 ">
                         {/* Logo */}
                         <NavLink to='/'>
-                            <img src={logo} alt='Logo' className='md:h-auto h-[50px]' />
+                            <img src={logo} alt='Logo' className='md:h-auto w-[60px] py-4' />
                         </NavLink>
 
                         {/* Navbar links for larger screens */}
